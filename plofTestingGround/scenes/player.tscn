@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bbgcbie1pkpex"]
+
+[ext_resource type="Script" uid="uid://dyw8xv7lld8s1" path="res://plofTestingGround/player.gd" id="1_a5q2u"]
+[ext_resource type="Texture2D" uid="uid://u0kdyfrkfy8x" path="res://assets/SNES - Wild Guns - Playable Characters - Annie.png" id="1_a8fyc"]
+[ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="2_44wsj"]
+[ext_resource type="Script" uid="uid://je8b8ke7mfpt" path="res://plofTestingGround/Scripts/States/normal.gd" id="3_3qyu2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44wsj"]
+atlas = ExtResource("1_a8fyc")
+region = Rect2(342, 1008, 38, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qyu2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44wsj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5q2u"]
+size = Vector2(19, 65)
+
+[node name="Player" type="CharacterBody2D" unique_id=1275736653]
+script = ExtResource("1_a5q2u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92082526]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_3qyu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1366114351]
+position = Vector2(0, 2)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_a5q2u")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1891357562 node_paths=PackedStringArray("current_state")]
+script = ExtResource("2_44wsj")
+current_state = NodePath("Normal")
+metadata/_custom_type_script = "uid://bg38xhvvys2sx"
+metadata/index = 1
+
+[node name="Normal" type="Node" parent="StateMachine" unique_id=1400782190]
+script = ExtResource("3_3qyu2")
+move_speed = 500
+metadata/Index = 2

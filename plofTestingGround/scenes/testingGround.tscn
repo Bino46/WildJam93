@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cduauol6ep3fp"]
+
+[ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="1_cqs7g"]
+[ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="2_y73of"]
+[ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/scripts/playerCamera.gd" id="3_8awku"]
+[ext_resource type="Texture2D" uid="uid://cslfu5ukvdo5r" path="res://assets/crosshair089.png" id="4_jthqg"]
+[ext_resource type="Script" uid="uid://bkxh6h4sri45" path="res://plofTestingGround/scripts/cross_hair.gd" id="5_s4uif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11eft"]
+size = Vector2(283, 743)
+
+[node name="Node2D" type="Node2D" unique_id=1834464356]
+
+[node name="CollagePhbg" type="Sprite2D" parent="." unique_id=155075319]
+position = Vector2(502, 368)
+scale = Vector2(4, 4)
+texture = ExtResource("1_cqs7g")
+
+[node name="Player" parent="." unique_id=1275736653 instance=ExtResource("2_y73of")]
+z_index = 2
+position = Vector2(534, 586)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=957746276 node_paths=PackedStringArray("background")]
+position = Vector2(-21, -136)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+script = ExtResource("3_8awku")
+background = NodePath("../../CollagePhbg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=85565780]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1458724945]
+position = Vector2(-357, 370)
+shape = SubResource("RectangleShape2D_11eft")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1767026419]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1296437133]
+position = Vector2(1362, 368)
+shape = SubResource("RectangleShape2D_11eft")
+
+[node name="CrossHair" type="Sprite2D" parent="." unique_id=1678427313]
+z_index = 5
+position = Vector2(535, 371)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_jthqg")
+script = ExtResource("5_s4uif")
+cross_speed = 750.0
