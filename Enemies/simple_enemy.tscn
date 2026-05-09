@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dgwcsbdw530ob"]
+
+[ext_resource type="Script" uid="uid://dgg8y3xxslav2" path="res://EnemyHealth.gd" id="1_d2rvv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_m5bho"]
+
+[node name="SimpleEnemy" type="Node2D" unique_id=1703660368]
+script = ExtResource("1_d2rvv")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=296674096]
+scale = Vector2(54.5, 54.5)
+mesh = SubResource("QuadMesh_m5bho")
