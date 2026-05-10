@@ -1,13 +1,18 @@
 class_name Pool
 extends Node
 
+static var pool_manager_instance
 @export var object_reference = PackedScene.new()
+@export var pool_name : String
 @export var object_count = 10
 var pool_list = []
 
 func _ready():
 	for i in range(object_count):
 		make_instance()
+
+	pool_manager_instance = pool_manager._instance
+	pool_manager_instance.add_to_global_list(pool_name, self)
 
 	
 func make_instance() -> PoolObject:
@@ -38,8 +43,7 @@ func get_instance() -> Node2D:
 	var obj = returned_instance as PoolObject
 	obj.change_state(true)
 
+	# var obj_transform = returned_instance as Node2D
+	# obj_transform.position = new_pos
+
 	return returned_instance
-
-
-func _on_timer_timeout() -> void:
-	get_instance()
