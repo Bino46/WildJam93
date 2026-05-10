@@ -43,7 +43,4 @@ func get_instance() -> Node2D:
 	var obj = returned_instance as PoolObject
 	obj.change_state(true)
 
-	# var obj_transform = returned_instance as Node2D
-	# obj_transform.position = new_pos
-
 	return returned_instance

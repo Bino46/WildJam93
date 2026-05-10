@@ -17,6 +17,7 @@ position = Vector2(-680, 174)
 script = ExtResource("2_2vp3m")
 object_reference = ExtResource("1_x5sa1")
 pool_name = "Enemy"
+object_count = 1
 
 [node name="CollagePhbg" type="Sprite2D" parent="." unique_id=1493703]
 position = Vector2(964.99994, 541)
@@ -25,9 +26,9 @@ texture = ExtResource("3_t5wki")
 
 [node name="EnemySpawns" type="Node" parent="." unique_id=1798390456]
 
-[node name="EnemySpawn" parent="EnemySpawns" unique_id=1957907348 instance=ExtResource("4_lxqfu")]
-position = Vector2(-73, 797)
-move_to_position = Vector2(616, 791)
+[node name="EnemySpawn" parent="EnemySpawns" unique_id=1957907348 node_paths=PackedStringArray("move_to_position") instance=ExtResource("4_lxqfu")]
+position = Vector2(187, 806)
+move_to_position = NodePath("../../Spot")
 
 [node name="Spot" type="Node2D" parent="." unique_id=493952963]
-position = Vector2(616, 791)
+position = Vector2(1827, 232)
