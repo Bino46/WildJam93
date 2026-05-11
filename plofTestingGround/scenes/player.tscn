@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://u0kdyfrkfy8x" path="res://assets/SNES - Wild Guns - Playable Characters - Annie.png" id="1_a8fyc"]
 [ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="2_44wsj"]
 [ext_resource type="Script" uid="uid://je8b8ke7mfpt" path="res://plofTestingGround/Scripts/States/normal.gd" id="3_3qyu2"]
-[ext_resource type="Script" uid="uid://ot0ynbxkn5md" path="res://plofTestingGround/Scripts/rolling_right.gd" id="5_7pwwr"]
-[ext_resource type="Script" uid="uid://nqygrf7gobfo" path="res://plofTestingGround/Scripts/rolling_left.gd" id="6_us17c"]
+[ext_resource type="Script" uid="uid://ot0ynbxkn5md" path="res://plofTestingGround/Scripts/States/rolling_right.gd" id="5_7pwwr"]
+[ext_resource type="Script" uid="uid://nqygrf7gobfo" path="res://plofTestingGround/Scripts/States/rolling_left.gd" id="6_us17c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44wsj"]
 atlas = ExtResource("1_a8fyc")

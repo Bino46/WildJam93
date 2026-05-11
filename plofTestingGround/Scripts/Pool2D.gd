@@ -11,8 +11,8 @@ func _ready():
 	for i in range(object_count):
 		make_instance()
 
-	#pool_manager_instance = pool_manager._instance
-	#pool_manager_instance.add_to_global_list(pool_name, self)
+	pool_manager_instance = pool_manager._instance
+	pool_manager_instance.add_to_global_list(pool_name, self)
 
 	
 func make_instance() -> PoolObject2D:

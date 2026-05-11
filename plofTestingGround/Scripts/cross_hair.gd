@@ -5,16 +5,32 @@ extends Sprite2D
 
 var is_moving: bool = false
 var scale_tween: Tween
+var use_mouse: bool = true
 
-func _ready() -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		use_mouse = true
+	elif event is InputEventJoypadButton or (event is InputEventJoypadMotion and abs(event.axis_value) > 0.3):
+		use_mouse = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	if event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _process(delta: float) -> void:
-	if Input.get_connected_joypads().size() > 0:
+	if use_mouse:
+		global_position = get_global_mouse_position()
+	else:
 		var input_dir = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 		global_position += input_dir * cross_speed * delta
-	else:
-		global_position = get_global_mouse_position()
+	
+	#if Input.get_connected_joypads().size() > 0:
+		#var input_dir = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+		#global_position += input_dir * cross_speed * delta
+	#else:
+		#global_position = get_global_mouse_position()
 		
 	lose_accuracy()
 	clamp_to_camera()

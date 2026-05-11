@@ -15,6 +15,10 @@ run/main_scene="uid://cduauol6ep3fp"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PoolManager="*uid://beme3l34hkfb5"
+
 [display]
 
 window/size/viewport_width=1024

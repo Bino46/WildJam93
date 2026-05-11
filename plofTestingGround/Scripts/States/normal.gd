@@ -2,7 +2,6 @@ extends PlayerState
 
 
 @onready var player = $"../.."
-var bullet = preload("res://plofTestingGround/scenes/bullet.tscn")
 @onready var timer_next_shot: Timer = $"../../Timer"
 @export var firing_rate : float = 0.1
 @onready var bullet_pool = $"../../../PoolBullet"
