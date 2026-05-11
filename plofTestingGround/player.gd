@@ -4,3 +4,4 @@ extends CharacterBody2D
 signal shooting
 @onready var cross_hair = $"../CrossHair"
 @onready var level = $".."
+@export var shooting_rate : float = 0.1
