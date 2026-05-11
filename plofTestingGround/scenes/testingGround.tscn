@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="3_8awku"]
 [ext_resource type="Texture2D" uid="uid://cslfu5ukvdo5r" path="res://assets/crosshair089.png" id="4_jthqg"]
 [ext_resource type="Script" uid="uid://bkxh6h4sri45" path="res://plofTestingGround/Scripts/cross_hair.gd" id="5_s4uif"]
-[ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Pool.gd" id="6_nln75"]
-[ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/bullet.tscn" id="7_ike54"]
+[ext_resource type="Script" uid="uid://dlqgopcebelkn" path="res://plofTestingGround/Scripts/Pool2D.gd" id="6_nln75"]
+[ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="7_nln75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11eft"]
 size = Vector2(283, 743)
@@ -51,5 +51,7 @@ cross_speed = 750.0
 
 [node name="PoolBullet" type="Node" parent="." unique_id=763538901]
 script = ExtResource("6_nln75")
-object_reference = ExtResource("7_ike54")
+object_reference = ExtResource("7_nln75")
+pool_name = "BulletPool"
+object_count = 30
 metadata/_custom_type_script = "uid://dyvo8viosd0o1"

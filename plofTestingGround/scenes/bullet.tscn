@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buoyk2jy8wwab"]
 
-[ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/scripts/bullet.gd" id="1_pw4vm"]
+[ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/Scripts/bullet.gd" id="1_pw4vm"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wmv3g"]
 

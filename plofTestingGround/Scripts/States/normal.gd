@@ -5,6 +5,7 @@ extends PlayerState
 var bullet = preload("res://plofTestingGround/scenes/bullet.tscn")
 @onready var timer_next_shot: Timer = $"../../Timer"
 @export var firing_rate : float = 0.1
+@onready var bullet_pool = $"../../../PoolBullet"
 
 func Enter() -> void:
 	timer_next_shot.wait_time = firing_rate
@@ -38,7 +39,8 @@ func Physics_update(delta: float) -> void:
 	
 func shoot():
 	var target_pos = player.cross_hair.global_position
-	var b = bullet.instantiate()
-	player.level.add_child(b)
+	var player_pos = player.global_position
+	var b = bullet_pool.get_instance()
+	#player.level.add_child(b)
 	b.global_position = player.global_position
-	b.launch(target_pos)
+	b.launch(target_pos, player_pos)
