@@ -1,12 +1,37 @@
 [gd_scene format=3 uid="uid://dgwcsbdw530ob"]
 
-[ext_resource type="Script" uid="uid://dgg8y3xxslav2" path="res://EnemyHealth.gd" id="1_d2rvv"]
+[ext_resource type="Script" uid="uid://ixv4fw28a7f" path="res://Enemies/simple_enemy.gd" id="1_57nd7"]
+[ext_resource type="Script" uid="uid://dgg8y3xxslav2" path="res://Enemies/Scripts/EnemyHealth.gd" id="1_d2rvv"]
+[ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="2_22mh4"]
+[ext_resource type="Script" uid="uid://c0qg65cgrd5yv" path="res://Enemies/Scripts/States/enemy_movement.gd" id="4_57nd7"]
+[ext_resource type="Script" uid="uid://dl245y83n7s2e" path="res://Enemies/Scripts/States/enemy_idle.gd" id="5_aagqh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_m5bho"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fv5p"]
+size = Vector2(54, 54)
+
 [node name="SimpleEnemy" type="Node2D" unique_id=1703660368]
-script = ExtResource("1_d2rvv")
+script = ExtResource("1_57nd7")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=296674096]
+modulate = Color(1, 0.95, 0, 1)
 scale = Vector2(54.5, 54.5)
 mesh = SubResource("QuadMesh_m5bho")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=320888318]
+script = ExtResource("1_d2rvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1364584957]
+shape = SubResource("RectangleShape2D_6fv5p")
+debug_color = Color(0, 0.5950001, 0.7, 0)
+
+[node name="StateMachine" type="Node" parent="." unique_id=2089161065 node_paths=PackedStringArray("current_state")]
+script = ExtResource("2_22mh4")
+current_state = NodePath("Idle")
+
+[node name="Movement" type="Node" parent="StateMachine" unique_id=312039415]
+script = ExtResource("4_57nd7")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=2066425949]
+script = ExtResource("5_aagqh")
