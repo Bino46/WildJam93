@@ -34,6 +34,7 @@ current_state = NodePath("Idle")
 
 [node name="Movement" type="Node" parent="StateMachine" unique_id=312039415]
 script = ExtResource("4_57nd7")
+move_speed = 1
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2066425949]
 script = ExtResource("5_aagqh")
