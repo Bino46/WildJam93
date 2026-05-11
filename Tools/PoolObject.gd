@@ -10,9 +10,9 @@ func get_visible_part() -> void:
 
 func change_state(state):
 
-	if(visible_part == null):
-		get_visible_part()
+	# if(visible_part == null):
+	# 	get_visible_part()
 
-	visible_part.visible = state
+	self.visible = state
 	set_process(state)
 	is_active = state;

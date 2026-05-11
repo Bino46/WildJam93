@@ -27,8 +27,8 @@ texture = ExtResource("3_t5wki")
 [node name="EnemySpawns" type="Node" parent="." unique_id=1798390456]
 
 [node name="EnemySpawn" parent="EnemySpawns" unique_id=1957907348 node_paths=PackedStringArray("move_to_position") instance=ExtResource("4_lxqfu")]
-position = Vector2(187, 806)
+position = Vector2(-29, 804)
 move_to_position = NodePath("../../Spot")
 
 [node name="Spot" type="Node2D" parent="." unique_id=493952963]
-position = Vector2(1827, 232)
+position = Vector2(479, 808)
