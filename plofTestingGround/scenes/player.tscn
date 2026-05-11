@@ -79,6 +79,9 @@ _data = {
 &"rolling_right": SubResource("Animation_eafx7")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us17c"]
+size = Vector2(68, 99)
+
 [node name="Player" type="CharacterBody2D" unique_id=1275736653]
 script = ExtResource("1_a5q2u")
 
@@ -116,3 +119,13 @@ move_speed = 500
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=367276479]
 libraries/ = SubResource("AnimationLibrary_jhwth")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1577358456]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=443724154]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_us17c")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

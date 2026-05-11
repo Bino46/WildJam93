@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/Scripts/bullet.gd" id="1_v67i8"]
 [ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_jwtrj"]
+[ext_resource type="Script" uid="uid://cen63f13yp783" path="res://plofTestingGround/scripts/area_2d.gd" id="3_jwtrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v67i8"]
 
 [node name="Bullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_v67i8")
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_jwtrj")]
 script = null
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1062434151]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_jwtrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1104473844]
+shape = SubResource("RectangleShape2D_v67i8")

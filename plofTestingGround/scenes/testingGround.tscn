@@ -55,3 +55,6 @@ object_reference = ExtResource("7_nln75")
 pool_name = "BulletPool"
 object_count = 30
 metadata/_custom_type_script = "uid://dyvo8viosd0o1"
+
+[node name="Bullet" parent="." unique_id=267890759 instance=ExtResource("7_nln75")]
+position = Vector2(305, 571)
