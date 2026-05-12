@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bkxh6h4sri45" path="res://plofTestingGround/Scripts/cross_hair.gd" id="5_s4uif"]
 [ext_resource type="Script" uid="uid://dlqgopcebelkn" path="res://plofTestingGround/Scripts/Pool2D.gd" id="6_nln75"]
 [ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="7_nln75"]
+[ext_resource type="PackedScene" uid="uid://dim2nj1g4brrs" path="res://plofTestingGround/scenes/power_up_shotgun.tscn" id="8_ike54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11eft"]
 size = Vector2(283, 743)
@@ -18,9 +19,11 @@ position = Vector2(502, 368)
 scale = Vector2(4, 4)
 texture = ExtResource("1_cqs7g")
 
-[node name="Player" parent="." unique_id=1275736653 instance=ExtResource("2_y73of")]
+[node name="Player" parent="." unique_id=1275736653 node_paths=PackedStringArray("cross_hair", "level") instance=ExtResource("2_y73of")]
 z_index = 2
 position = Vector2(534, 586)
+cross_hair = NodePath("../CrossHair")
+level = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=957746276 node_paths=PackedStringArray("background")]
 position = Vector2(-21, -136)
@@ -50,8 +53,12 @@ script = ExtResource("5_s4uif")
 cross_speed = 750.0
 
 [node name="PoolPlayerBullet" type="Node" parent="." unique_id=763538901]
+unique_name_in_owner = true
 script = ExtResource("6_nln75")
 object_reference = ExtResource("7_nln75")
 pool_name = "BulletPool"
 object_count = 30
 metadata/_custom_type_script = "uid://dyvo8viosd0o1"
+
+[node name="PowerUpShotgun" parent="." unique_id=1500165822 instance=ExtResource("8_ike54")]
+position = Vector2(735, 174)

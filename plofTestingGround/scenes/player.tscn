@@ -84,7 +84,6 @@ size = Vector2(68, 99)
 
 [node name="Player" type="CharacterBody2D" unique_id=1275736653]
 script = ExtResource("1_a5q2u")
-current_weapon = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92082526]
 texture_filter = 1
@@ -102,8 +101,9 @@ current_state = NodePath("Normal")
 metadata/_custom_type_script = "uid://bg38xhvvys2sx"
 metadata/index = 1
 
-[node name="Normal" type="Node" parent="StateMachine" unique_id=1400782190]
+[node name="Normal" type="Node" parent="StateMachine" unique_id=1400782190 node_paths=PackedStringArray("timer_next_shot")]
 script = ExtResource("3_3qyu2")
+timer_next_shot = NodePath("../../Timer")
 firing_rate = 0.17
 move_speed = 500
 metadata/Index = 2

@@ -2,7 +2,7 @@ extends PlayerState
 
 
 @onready var player = $"../.."
-@onready var timer_next_shot: Timer = $"../../Timer"
+@export var timer_next_shot: Timer
 #Pistolet:
 @export var firing_rate : float = 0.1
 #Shotgun
@@ -21,7 +21,10 @@ func Update(delta: float) -> void:
 	#Le shoot est dans ce state, puisque c'est le seul qui le permet
 	if Input.is_action_pressed("shoot") and timer_next_shot.is_stopped():
 		shoot()
-		timer_next_shot.start()
+		if player.current_weapon == player.WeaponType.SHOTGUN:
+			timer_next_shot.start(shotgun_rate)
+		else:
+			timer_next_shot.start(firing_rate)
 	#Esquive/Saut ?
 	if Input.is_action_just_pressed("jump") and direction != 0:
 		if direction > 0:
@@ -44,10 +47,8 @@ func shoot() -> void:
 	match player.current_weapon:
 		player.WeaponType.PISTOL:
 			fire_bullet(target_pos, player_pos)
-			timer_next_shot.wait_time = firing_rate
 		player.WeaponType.SHOTGUN:
 			fire_shotgun(target_pos, player_pos)
-			timer_next_shot.wait_time = shotgun_rate
 	
 	
 func fire_bullet(target: Vector2, origin: Vector2) -> void:
@@ -68,6 +69,10 @@ func fire_shotgun(target_center: Vector2, origin: Vector2) -> void:
 		var b = bullet_pool.get_instance()
 		b.global_position = origin
 		b.launch(specific_target, origin)
+	player.shotgun_ammo -= 1
+	print(player.shotgun_ammo)
+	if player.shotgun_ammo <= 0:
+		player.switch_pistol()
 #func shoot():
 	#var target_pos = player.cross_hair.global_position
 	#var player_pos = player.global_position

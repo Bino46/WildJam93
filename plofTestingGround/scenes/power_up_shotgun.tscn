@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dim2nj1g4brrs"]
+
+[ext_resource type="Script" uid="uid://pjfrgyb5hp3k" path="res://plofTestingGround/Scripts/power_up_shotgun.gd" id="1_22ta1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kkkbe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22ta1"]
+size = Vector2(93, 84)
+
+[node name="PowerUpShotgun" type="Node2D" unique_id=1500165822]
+script = ExtResource("1_22ta1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1551971594]
+modulate = Color(0.15686275, 1, 1, 1)
+scale = Vector2(92.5, 84)
+texture = SubResource("PlaceholderTexture2D_kkkbe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=241448448]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=676906837]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_22ta1")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

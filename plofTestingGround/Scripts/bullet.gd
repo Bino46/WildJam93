@@ -1,4 +1,5 @@
 extends PoolObject2D
+class_name Bullet
 
 @export_group("Tween settings")
 @export var travel_duration: float = 0.2
