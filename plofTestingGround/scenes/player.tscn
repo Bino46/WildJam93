@@ -84,6 +84,7 @@ size = Vector2(68, 99)
 
 [node name="Player" type="CharacterBody2D" unique_id=1275736653]
 script = ExtResource("1_a5q2u")
+current_weapon = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92082526]
 texture_filter = 1
@@ -121,8 +122,8 @@ move_speed = 500
 libraries/ = SubResource("AnimationLibrary_jhwth")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1577358456]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=443724154]
 position = Vector2(2, -0.5)

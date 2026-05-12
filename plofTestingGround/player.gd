@@ -7,6 +7,9 @@ signal shooting
 @export var shooting_rate : float = 0.1
 @export var life : int = 2
 
+#Pour les powerups
+enum WeaponType {PISTOL, SHOTGUN}
+@export var current_weapon = WeaponType.PISTOL
 
 func die() -> void:
 	life -= 1
