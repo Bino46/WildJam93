@@ -7,5 +7,4 @@ func set_direction(start, direction):
 
 	state_machine.on_child_transitioned("Movement")
 
-	state_machine.current_state.direction = direction
-	state_machine.current_state.start_pos = start
+	state_machine.current_state.set_direction(start, direction)

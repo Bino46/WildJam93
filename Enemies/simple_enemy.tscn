@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="2_22mh4"]
 [ext_resource type="Script" uid="uid://c0qg65cgrd5yv" path="res://Enemies/Scripts/States/enemy_movement.gd" id="4_57nd7"]
 [ext_resource type="Script" uid="uid://dl245y83n7s2e" path="res://Enemies/Scripts/States/enemy_idle.gd" id="5_aagqh"]
+[ext_resource type="Script" uid="uid://dxmlv0m8wuxjy" path="res://Enemies/Scripts/States/enemy_shoot.gd" id="6_5o5db"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_m5bho"]
 
@@ -38,3 +39,6 @@ move_speed = 1
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2066425949]
 script = ExtResource("5_aagqh")
+
+[node name="Shoot" type="Node" parent="StateMachine" unique_id=375059297]
+script = ExtResource("6_5o5db")
