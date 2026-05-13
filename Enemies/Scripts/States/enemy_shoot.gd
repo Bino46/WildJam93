@@ -7,6 +7,7 @@ var wait_time : float
 func Enter() -> void: 
 	shoot_timer = shoot_wait_time
 	wait_time = wait_before_retreat
+	shot = false
 
 func Exit() -> void: pass
 
@@ -14,14 +15,12 @@ func Exit() -> void: pass
 func Update(delta: float) -> void: 
 
 	if(!shot):
-		print("wait shoot")
 		shoot_timer = shoot_timer - delta
 	
-	if(shoot_timer <= 1):
+	if(shoot_timer <= 1 && !shot):
 		shoot()
 
 	if(shot):
-		print("wait retreat")
 		wait_time -= delta
 
 	if(wait_time <= 0):
@@ -35,15 +34,14 @@ func Physics_update(delta: float) -> void: pass
 
 func shoot():
 	shot = true
-	print("shoot")
 	# do smth
 
 func retreat_mode():
-	print("retreat")
 	is_retreating = true
-	var parent = get_parent() as StateMachine
 
-	var enemy_transform = enemy as Node2D
-	parent.set_direction(self.position, enemy_transform.position)
+	var parent = get_parent().get_parent() as simple_enemy
+	parent.set_direction(parent.global_position, parent.origin)
 
-	parent.on_child_transitioned("Movement")
+	var state = get_parent() as StateMachine
+	state.on_child_transitioned("Movement")
+	state.current_state.is_retreating = true

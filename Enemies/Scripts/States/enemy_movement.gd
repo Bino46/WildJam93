@@ -14,7 +14,6 @@ func Exit() -> void: pass
 @warning_ignore("unused_parameter")
 func Update(delta: float) -> void: 
 	move_toward_target(delta)
-	print("move")
 
 	
 @warning_ignore("unused_parameter")
@@ -27,13 +26,22 @@ func move_toward_target(delta_time: float):
 	lerp_time = lerp_time + delta_time * move_speed
 
 	enemy_transform.global_position = new_pos
+
 	
 	if lerp_time >= 1:
-		print("switch")
-		var parent = get_parent() as StateMachine
+		change_state()
 
-		if(!is_retreating):
-			parent.on_child_transitioned("Shoot")
-		else:
-			parent.on_child_transitioned("Idle")
+func change_state():
+
+	var machine = get_parent() as StateMachine
+
+	if(!is_retreating):
+		machine.on_child_transitioned("Shoot")
+	else:
+		is_retreating = false
+
+		var parent = get_parent().get_parent() as simple_enemy
+		machine.on_child_transitioned("Idle")
+
+		parent.change_state(false)
 

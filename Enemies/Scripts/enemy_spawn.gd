@@ -12,6 +12,7 @@ func spawn_enemy():
 
 	var enemy = obj as simple_enemy
 	enemy.set_direction(position, move_to_position.position)
+	enemy.set_origin(global_position)
 
 func _on_timer_timeout() -> void:
 	spawn_enemy()

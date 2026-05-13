@@ -42,3 +42,5 @@ script = ExtResource("5_aagqh")
 
 [node name="Shoot" type="Node" parent="StateMachine" unique_id=375059297]
 script = ExtResource("6_5o5db")
+shoot_wait_time = 1.0
+wait_before_retreat = 1.0
