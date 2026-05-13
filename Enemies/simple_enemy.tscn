@@ -44,3 +44,5 @@ script = ExtResource("5_aagqh")
 script = ExtResource("6_5o5db")
 shoot_wait_time = 1.0
 wait_before_retreat = 1.0
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
