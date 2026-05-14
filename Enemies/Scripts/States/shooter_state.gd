@@ -10,8 +10,8 @@ var start_pos : Vector2
 var is_retreating : bool = false
 
 func set_direction(start, new_direction):
-    start_pos = start
-    direction = new_direction
+	start_pos = start
+	direction = new_direction
 
 # Shoot
 @export var shoot_wait_time : float = 3

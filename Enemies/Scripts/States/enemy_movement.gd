@@ -44,4 +44,3 @@ func change_state():
 		machine.on_child_transitioned("Idle")
 
 		parent.change_state(false)
-
