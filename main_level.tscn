@@ -26,6 +26,9 @@ level = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=52321186 node_paths=PackedStringArray("background")]
 position = Vector2(0, -141)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
 script = ExtResource("2_bhu08")
 background = NodePath("../../CollagePhbg")
 
