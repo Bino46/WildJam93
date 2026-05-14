@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 
 
 func take_damage():
+	print("huh")
 	_health -= 1
 	
 	if(_health <= 0):

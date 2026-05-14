@@ -33,7 +33,7 @@ func get_instance() -> Node2D:
 	var returned_instance
 
 	for i in range(pool_list.size()):
-		if(pool_list[i].is_active == false):
+		if(!pool_list[i].is_active):
 			returned_instance = pool_list[i]
 	
 	if(returned_instance == null):
@@ -44,3 +44,12 @@ func get_instance() -> Node2D:
 	obj.change_state(true)
 
 	return returned_instance
+	
+
+func check_if_any_active() -> bool:
+
+	for i in range(pool_list.size()):
+		if(pool_list[i].is_active):
+			return true
+
+	return false

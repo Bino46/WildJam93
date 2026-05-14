@@ -3,10 +3,6 @@ extends State
 
 @onready var enemy = $"../.."
 
-# Movement
-@export var move_speed : int = 3
-var direction : Vector2
-var start_pos : Vector2
 var is_retreating : bool = false
 
 func set_direction(start, new_direction):
