@@ -19,19 +19,21 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 
-	# Immonde
 	if(!pool_reference.check_if_any_active()):
 		timer = timer - delta
 
-		if(timer <= 0):
+		if(timer <= 0 && current_wave_id < list_wave_data.size()):
 			launch_wave()
+
+		if(current_wave_id >= list_wave_data.size()):
+			current_wave_id = 0
 
 
 func launch_wave():
 
-	var current_wave_data = list_wave_data[current_wave_id]
-
 	timer = time_between_waves
+	
+	var current_wave_data = list_wave_data[current_wave_id]
 
 	for i in range(current_wave_data.simple_enemy_count):
 		get_spawner(0, current_wave_data.simple_enemy_spot[i])

@@ -22,6 +22,7 @@ mesh = SubResource("QuadMesh_m5bho")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=320888318]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_d2rvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1364584957]
@@ -41,7 +42,7 @@ script = ExtResource("5_aagqh")
 
 [node name="Shoot" type="Node" parent="StateMachine" unique_id=375059297]
 script = ExtResource("6_5o5db")
-shoot_wait_time = 1.0
-wait_before_retreat = 0.2
+shoot_wait_time = 2.0
+wait_before_retreat = 1.5
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

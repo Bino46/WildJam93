@@ -14,5 +14,8 @@ func spawn_enemy(move_to_position = Vector2.ZERO):
 	enemy.set_direction(position, move_to_position)
 	enemy.set_origin(global_position)
 
+	var health = obj.get_node("Area2D") as EnemyHealth
+	health.reset_health()
+
 func _on_timer_timeout() -> void:
 	spawn_enemy()

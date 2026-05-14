@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://1b5wv65cx6dg"]
+[gd_scene format=3 uid="uid://btwtd4vki5v7y"]
 
 [ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_6614m"]
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_bhu08"]
@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://c3rg13hv6u62y" path="res://plofTestingGround/scenes/cross_hair.tscn" id="5_5fjre"]
 [ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="6_oeaww"]
 [ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="7_aonjr"]
+[ext_resource type="PackedScene" uid="uid://dgwcsbdw530ob" path="res://Enemies/simple_enemy.tscn" id="8_xqiim"]
+[ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="9_6pb3s"]
+[ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="10_e3ldi"]
+[ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="11_ah7fh"]
+[ext_resource type="Resource" uid="uid://bm65reesyx77p" path="res://Enemies/Scripts/Waves/wave2.tres" id="12_x2wht"]
+[ext_resource type="Resource" uid="uid://drmgwkjtogx3q" path="res://Enemies/Scripts/Waves/wave3.tres" id="13_52es0"]
+[ext_resource type="Resource" uid="uid://lpbyj6f26lql" path="res://Enemies/Scripts/Waves/wave4.tres" id="14_08fmi"]
+[ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="15_8m212"]
 
 [node name="MainLevel" type="Node2D" unique_id=625763660]
 
@@ -38,3 +46,41 @@ position = Vector2(512.0001, 392)
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("7_aonjr")
 pool_name = "BulletPlayer"
+
+[node name="Pools" type="Node" parent="." unique_id=1160646107]
+
+[node name="EnemyPool" type="Node2D" parent="Pools" unique_id=971962886]
+position = Vector2(-680, 174)
+script = ExtResource("6_oeaww")
+object_reference = ExtResource("8_xqiim")
+pool_name = "Enemy"
+object_count = 1
+
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=489294811 node_paths=PackedStringArray("pool_reference", "list_simple_spawners", "list_enemy_spots")]
+script = ExtResource("9_6pb3s")
+pool_reference = NodePath("../Pools/EnemyPool")
+list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
+list_enemy_spots = [NodePath("EnemySpots/Spot"), NodePath("EnemySpots/Spot2"), NodePath("EnemySpots/Spot3"), NodePath("EnemySpots/Spot4")]
+list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("11_ah7fh"), ExtResource("12_x2wht"), ExtResource("13_52es0"), ExtResource("14_08fmi")])
+
+[node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1191611150]
+
+[node name="EnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1957907348 instance=ExtResource("15_8m212")]
+position = Vector2(-492, 589)
+
+[node name="EnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=2063449573 instance=ExtResource("15_8m212")]
+position = Vector2(1494, 580)
+
+[node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=463161236]
+
+[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1281554875]
+position = Vector2(-3, 595)
+
+[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1950081087]
+position = Vector2(347, 551)
+
+[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1278476205]
+position = Vector2(749, 551)
+
+[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=133548344]
+position = Vector2(988, 581)

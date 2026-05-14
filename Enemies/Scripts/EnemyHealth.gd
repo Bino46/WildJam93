@@ -1,7 +1,12 @@
+class_name EnemyHealth
 extends Node2D
 
 @export var _health : float = 3
+var current_health
 var time = 0
+
+func _ready() -> void:
+	current_health = _health
 
 func _process(delta: float) -> void:
 	time = time + delta * 2
@@ -14,13 +19,15 @@ func _process(delta: float) -> void:
 
 
 func take_damage():
-	print("huh")
-	_health -= 1
+	current_health -= 1
 	
-	if(_health <= 0):
+	if(current_health <= 0):
 		var parent = get_parent() as simple_enemy
 		parent.change_state(false)
 
+func reset_health():
+	current_health = _health
+
 func _on_area_entered(area: Area2D) -> void:
-	if(area.collision_layer == 2):
+	if(area.collision_layer == 2 && area.get_script() != EnemyHealth):
 		take_damage()
