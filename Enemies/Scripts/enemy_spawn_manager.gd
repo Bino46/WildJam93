@@ -12,7 +12,6 @@ extends Node
 @export var time_between_waves : float = 0.35
 
 var timer
-var current_wave_data : wave_data
 var current_wave_id = 0
 
 func _ready() -> void:
@@ -20,6 +19,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 
+	# Immonde
 	if(!pool_reference.check_if_any_active()):
 		timer = timer - delta
 
@@ -29,9 +29,7 @@ func _process(delta: float) -> void:
 
 func launch_wave():
 
-	print(list_wave_data.size())
-
-	current_wave_data = list_wave_data[current_wave_id]
+	var current_wave_data = list_wave_data[current_wave_id]
 
 	timer = time_between_waves
 

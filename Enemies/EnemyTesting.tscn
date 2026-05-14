@@ -16,6 +16,11 @@
 [node name="Camera2D" type="Camera2D" parent="." unique_id=538931000]
 position = Vector2(957, 541)
 
+[node name="CollagePhbg" type="Sprite2D" parent="." unique_id=1493703]
+position = Vector2(964.99994, 541)
+scale = Vector2(5.084135, 5.084135)
+texture = ExtResource("3_t5wki")
+
 [node name="Pools" type="Node" parent="." unique_id=997206863]
 
 [node name="EnemyPool" type="Node2D" parent="Pools" unique_id=257093939]
@@ -24,11 +29,6 @@ script = ExtResource("2_2vp3m")
 object_reference = ExtResource("1_x5sa1")
 pool_name = "Enemy"
 object_count = 1
-
-[node name="CollagePhbg" type="Sprite2D" parent="." unique_id=1493703]
-position = Vector2(964.99994, 541)
-scale = Vector2(5.084135, 5.084135)
-texture = ExtResource("3_t5wki")
 
 [node name="EnemySpawnManager" type="Node" parent="." unique_id=1618637414 node_paths=PackedStringArray("pool_reference", "list_simple_spawners", "list_enemy_spots")]
 script = ExtResource("4_lxqfu")
