@@ -3,11 +3,19 @@ extends shooter_state
 var shoot_timer : float
 var shot : bool = false
 var wait_time : float
+var parent
+
+# Shoot
+@export var shoot_wait_time : float = 3
+@export var wait_before_retreat : float = 2
 
 func Enter() -> void: 
 	shoot_timer = shoot_wait_time
 	wait_time = wait_before_retreat
 	shot = false
+
+	if(parent == null):
+		parent = get_parent().get_parent() as simple_enemy
 
 func Exit() -> void: pass
 
@@ -17,7 +25,7 @@ func Update(delta: float) -> void:
 	if(!shot):
 		shoot_timer = shoot_timer - delta
 	
-	if(shoot_timer <= 1 && !shot):
+	if(shoot_timer <= 0 && !shot):
 		shoot()
 
 	if(shot):
@@ -34,12 +42,12 @@ func Physics_update(delta: float) -> void: pass
 
 func shoot():
 	shot = true
+	parent.change_color_id(2)
 	# do smth
 
 func retreat_mode():
 	is_retreating = true
-
-	var parent = get_parent().get_parent() as simple_enemy
+	
 	parent.set_direction(parent.global_position, parent.origin)
 
 	var state = get_parent() as StateMachine

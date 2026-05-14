@@ -4,6 +4,14 @@ var enemy_transform
 var lerp_time
 var new_pos : Vector2
 
+@export var move_speed : int = 3
+var direction : Vector2
+var start_pos : Vector2
+
+func set_direction(start, new_direction):
+	start_pos = start
+	direction = new_direction
+
 func Enter() -> void:
 	enemy_transform = enemy as Node2D
 	lerp_time = 0
@@ -44,4 +52,3 @@ func change_state():
 		machine.on_child_transitioned("Idle")
 
 		parent.change_state(false)
-

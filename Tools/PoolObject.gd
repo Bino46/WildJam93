@@ -1,6 +1,6 @@
 class_name PoolObject
 
-extends Node
+extends Node2D
 
 var is_active = false
 
