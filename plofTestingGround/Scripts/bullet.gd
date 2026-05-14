@@ -1,4 +1,4 @@
-extends PoolObject2D
+extends PoolObject
 class_name Bullet
 
 @export_group("Tween settings")

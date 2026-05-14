@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c3rg13hv6u62y"]
+
+[ext_resource type="Texture2D" uid="uid://cslfu5ukvdo5r" path="res://assets/crosshair089.png" id="1_aey1t"]
+[ext_resource type="Script" uid="uid://bkxh6h4sri45" path="res://plofTestingGround/Scripts/cross_hair.gd" id="2_eott5"]
+
+[node name="CrossHair" type="Sprite2D" unique_id=1882000265]
+z_index = 5
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_aey1t")
+script = ExtResource("2_eott5")
+cross_speed = 750.0

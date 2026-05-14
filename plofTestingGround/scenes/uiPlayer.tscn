@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://biu6prgqx0p5k"]
+
+[ext_resource type="Script" uid="uid://nc4gnik0v7e2" path="res://plofTestingGround/Scripts/label_score.gd" id="1_krqvh"]
+
+[node name="UI" type="Control" unique_id=358198289]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=1424767782]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 735.0
+offset_right = 197.0
+offset_bottom = 793.0
+theme_override_font_sizes/font_size = 42
+text = "SCORE"
+script = ExtResource("1_krqvh")

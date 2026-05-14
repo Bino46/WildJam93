@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://1b5wv65cx6dg"]
+
+[ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_6614m"]
+[ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_bhu08"]
+[ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="3_eqmdw"]
+[ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="4_uhmka"]
+[ext_resource type="PackedScene" uid="uid://c3rg13hv6u62y" path="res://plofTestingGround/scenes/cross_hair.tscn" id="5_5fjre"]
+[ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="6_oeaww"]
+[ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="7_aonjr"]
+
+[node name="MainLevel" type="Node2D" unique_id=625763660]
+
+[node name="Player" parent="." unique_id=1275736653 node_paths=PackedStringArray("cross_hair", "level") instance=ExtResource("1_6614m")]
+z_index = 2
+position = Vector2(511, 590)
+cross_hair = NodePath("../CrossHair")
+level = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=52321186 node_paths=PackedStringArray("background")]
+position = Vector2(0, -141)
+script = ExtResource("2_bhu08")
+background = NodePath("../../CollagePhbg")
+
+[node name="LimiteDroite" parent="." unique_id=69021630 instance=ExtResource("3_eqmdw")]
+
+[node name="LimiteGauche" parent="." unique_id=302279517 instance=ExtResource("3_eqmdw")]
+position = Vector2(1717, 0)
+
+[node name="CollagePhbg" type="Sprite2D" parent="." unique_id=380766422]
+position = Vector2(502, 368)
+scale = Vector2(4, 4)
+texture = ExtResource("4_uhmka")
+
+[node name="CrossHair" parent="." unique_id=1882000265 instance=ExtResource("5_5fjre")]
+position = Vector2(512.0001, 392)
+
+[node name="PoolPlayerBullet" type="Node" parent="." unique_id=834284641]
+script = ExtResource("6_oeaww")
+object_reference = ExtResource("7_aonjr")
+pool_name = "BulletPlayer"
