@@ -20,8 +20,11 @@ func change_state(state : bool, affect_active_instance_count : bool = true):
 			pool_ref.change_active_instance_count(-1)
 		
 	if(foreign_parent):
-		
+
 		foreign_parent = false
 
 		var pool_obj = pool_ref as Node
-		self.reparent(pool_obj)
+		call_deferred("reparent_node", pool_obj)
+
+func reparent_node(obj):
+	self.reparent(obj)

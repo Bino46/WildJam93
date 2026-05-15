@@ -36,6 +36,8 @@ func change_color(state):
 				id = 0
 			"Shoot":
 				id = 1 
+			"Idle":
+				id = 3
 				
 		self.modulate = color_at_state[id]
 		

@@ -1,6 +1,7 @@
 extends Node
 
-@export var pool_reference : Pool
+var simple_pool_reference : Pool
+var flame_pool_reference : Pool
 
 @export_category("Scene Objects")
 @export var list_simple_spawners : Array[enemy_spawn]
@@ -16,11 +17,15 @@ var timer
 var current_wave_id = 0
 
 func _ready() -> void:
+	simple_pool_reference = pool_manager._instance.pool_list["Enemy"]
+	flame_pool_reference = pool_manager._instance.pool_list["FlameEnemy"]
+	
 	timer = time_between_waves
+
 
 func _process(delta: float) -> void:
 
-	if(!pool_reference.check_if_any_active()):
+	if(!simple_pool_reference.check_if_any_active() && !flame_pool_reference.check_if_any_active()):
 		timer = timer - delta
 
 		if(timer <= 0 && current_wave_id < list_wave_data.size()):

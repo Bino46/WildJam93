@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="4_lxqfu"]
 [ext_resource type="PackedScene" uid="uid://bowi28de02wik" path="res://Enemies/flame_enemy.tscn" id="4_pod1g"]
 [ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="5_eegqj"]
+[ext_resource type="PackedScene" uid="uid://cluahbhkqg6ka" path="res://Tools/Hitboxes/Hitbox.tscn" id="5_es3ue"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="5_g6yf5"]
 [ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="6_es3ue"]
 
@@ -35,9 +36,14 @@ object_reference = ExtResource("4_pod1g")
 pool_name = "FlameEnemy"
 object_count = 1
 
-[node name="EnemySpawnManager" type="Node" parent="." unique_id=1618637414 node_paths=PackedStringArray("pool_reference", "list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
+[node name="HitboxesPool" type="Node2D" parent="Pools" unique_id=1359956623]
+position = Vector2(-680, 174)
+script = ExtResource("2_2vp3m")
+object_reference = ExtResource("5_es3ue")
+pool_name = "Hitbox"
+
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=1618637414 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
 script = ExtResource("4_lxqfu")
-pool_reference = NodePath("../Pools/SimpleEnemyPool")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
 list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
 list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]

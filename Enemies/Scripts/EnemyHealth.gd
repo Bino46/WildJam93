@@ -29,5 +29,6 @@ func reset_health():
 	current_health = _health
 
 func _on_area_entered(area: Area2D) -> void:
-	if(area.collision_layer == 2 && area.get_script() != EnemyHealth):
+	if(area.collision_layer == 2):
+		print("hit ", area.get_parent().name)
 		take_damage()
