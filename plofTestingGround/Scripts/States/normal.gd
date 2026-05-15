@@ -8,8 +8,10 @@ extends PlayerState
 #Shotgun
 @export var shotgun_rate : float = 0.5
 @onready var bullet_pool = $"../../../PoolPlayerBullet"
+@onready var animated_sprite = $"../../AnimatedSprite2D3"
 
 func Enter() -> void:
+	animated_sprite.play("default")
 	timer_next_shot.wait_time = firing_rate
 	timer_next_shot.one_shot = true
 	
@@ -33,12 +35,25 @@ func Update(delta: float) -> void:
 			transitioned.emit("RollingLeft")
 		else:
 			push_error("Pas de direction ?")
+	elif Input.is_action_just_pressed("jump") and direction == 0:
+		transitioned.emit("Jump")
 	
 @warning_ignore("unused_parameter")
 func Physics_update(delta: float) -> void:
 	direction = Input.get_axis("left", "right")
 	player.velocity.x = direction * move_speed
 	player.move_and_slide()
+	change_animation()
+	
+func change_animation() -> void:
+	if player.velocity.x > 0:
+		animated_sprite.play("walk_right")
+	elif player.velocity.x < 0:
+		animated_sprite.play("walk_left")
+	elif player.velocity.x == 0:
+		animated_sprite.play("default")
+	else:
+		print("T'as oublié un truc")
 	
 func shoot() -> void:
 	var target_pos = player.cross_hair.global_position

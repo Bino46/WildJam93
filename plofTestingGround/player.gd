@@ -16,6 +16,8 @@ enum WeaponType {PISTOL, SHOTGUN}
 var shotgun_ammo : int = 20
 @export var max_shotgun_ammo : int = 20
 
+@onready var hurtbox = $Hurtbox/CollisionShape2D
+
 func die() -> void:
 	life -= 1
 	if life <= 0:
@@ -37,3 +39,9 @@ func switch_shotgun() -> void:
 	
 func switch_pistol():
 	current_weapon = WeaponType.PISTOL
+	
+func disable_hurtbox() -> void:
+	hurtbox.disabled = true
+	
+func enable_hurtbox() -> void:
+	hurtbox.disabled = false
