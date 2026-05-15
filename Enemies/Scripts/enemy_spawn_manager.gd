@@ -4,6 +4,7 @@ extends Node
 
 @export_category("Scene Objects")
 @export var list_simple_spawners : Array[enemy_spawn]
+@export var list_flame_spawners : Array[enemy_spawn]
 @export var list_enemy_spots : Array[Node2D]
 @export var list_wave_data : Array[wave_data]
 
@@ -40,7 +41,7 @@ func launch_wave():
 		await get_tree().create_timer(time_between_enemy_spawns).timeout
 	
 	for i in range(current_wave_data.flame_enemy_count):
-		get_spawner(1, i)
+		get_spawner(1, current_wave_data.flame_enemy_spot[i])
 		await get_tree().create_timer(time_between_enemy_spawns).timeout
 	
 	current_wave_id += 1
@@ -53,7 +54,7 @@ func get_spawner(spawner_id, enemy_id):
 		0:
 			get_spot(list_simple_spawners, enemy_id)
 		1:
-			# get_spot(list_flame_spawners, enemy_id)
+			get_spot(list_flame_spawners, enemy_id)
 			pass
 			
 		
@@ -66,5 +67,11 @@ func get_spot(spawner, id):
 			spawner[0].spawn_enemy(list_enemy_spots[id].position)
 		2,3:
 			spawner[1].spawn_enemy(list_enemy_spots[id].position)
+		4,5:
+			var spot_parent = list_enemy_spots[id] as Node2D
+			spawner[0].spawn_enemy(list_enemy_spots[id].position, spot_parent.get_child(0) as Control)
+		6:
+			var spot_parent = list_enemy_spots[id] as Node2D
+			spawner[1].spawn_enemy(list_enemy_spots[id].position, spot_parent.get_child(0) as Control)
 		
 	

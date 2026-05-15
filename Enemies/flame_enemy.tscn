@@ -1,47 +1,49 @@
-[gd_scene format=3 uid="uid://dgwcsbdw530ob"]
+[gd_scene format=3 uid="uid://bowi28de02wik"]
 
-[ext_resource type="Script" uid="uid://ixv4fw28a7f" path="res://Enemies/simple_enemy.gd" id="1_57nd7"]
-[ext_resource type="Script" uid="uid://dgg8y3xxslav2" path="res://Enemies/Scripts/EnemyHealth.gd" id="1_d2rvv"]
-[ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="2_22mh4"]
-[ext_resource type="Script" uid="uid://c0qg65cgrd5yv" path="res://Enemies/Scripts/States/enemy_movement.gd" id="4_57nd7"]
-[ext_resource type="Script" uid="uid://dl245y83n7s2e" path="res://Enemies/Scripts/States/enemy_idle.gd" id="5_aagqh"]
-[ext_resource type="Script" uid="uid://dxmlv0m8wuxjy" path="res://Enemies/Scripts/States/enemy_shoot.gd" id="6_5o5db"]
+[ext_resource type="Script" uid="uid://ixv4fw28a7f" path="res://Enemies/simple_enemy.gd" id="1_obgfw"]
+[ext_resource type="Script" uid="uid://dgg8y3xxslav2" path="res://Enemies/Scripts/EnemyHealth.gd" id="2_iwqj8"]
+[ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="3_j2imv"]
+[ext_resource type="Script" uid="uid://c0qg65cgrd5yv" path="res://Enemies/Scripts/States/enemy_movement.gd" id="4_s543r"]
+[ext_resource type="Script" uid="uid://dl245y83n7s2e" path="res://Enemies/Scripts/States/enemy_idle.gd" id="5_7urha"]
+[ext_resource type="Script" uid="uid://dxmlv0m8wuxjy" path="res://Enemies/Scripts/States/enemy_shoot.gd" id="6_t3kfw"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_m5bho"]
+[sub_resource type="SphereMesh" id="SphereMesh_obgfw"]
+radial_segments = 4
+rings = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fv5p"]
 size = Vector2(54, 54)
 
-[node name="SimpleEnemy" type="Node2D" unique_id=1703660368]
-script = ExtResource("1_57nd7")
+[node name="FlameEnemy" type="Node2D" unique_id=1703660368]
+script = ExtResource("1_obgfw")
 color_at_state = Array[Color]([Color(0, 0.5960624, 0.71653026, 1), Color(1, 0.75, 0, 1), Color(1, 0, 0, 1)])
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=296674096]
 scale = Vector2(54.5, 54.5)
-mesh = SubResource("QuadMesh_m5bho")
+mesh = SubResource("SphereMesh_obgfw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=320888318]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_d2rvv")
+script = ExtResource("2_iwqj8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1364584957]
 shape = SubResource("RectangleShape2D_6fv5p")
 debug_color = Color(0, 0.5950001, 0.7, 0)
 
 [node name="StateMachine" type="Node" parent="." unique_id=2089161065 node_paths=PackedStringArray("current_state")]
-script = ExtResource("2_22mh4")
+script = ExtResource("3_j2imv")
 current_state = NodePath("Idle")
 
 [node name="Movement" type="Node" parent="StateMachine" unique_id=312039415]
-script = ExtResource("4_57nd7")
+script = ExtResource("4_s543r")
 move_speed = 1
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2066425949]
-script = ExtResource("5_aagqh")
+script = ExtResource("5_7urha")
 
 [node name="Shoot" type="Node" parent="StateMachine" unique_id=375059297]
-script = ExtResource("6_5o5db")
+script = ExtResource("6_t3kfw")
 shoot_wait_time = 1.5
 wait_before_retreat = 1.0
 

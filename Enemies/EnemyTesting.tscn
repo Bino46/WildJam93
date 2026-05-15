@@ -4,12 +4,10 @@
 [ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="2_2vp3m"]
 [ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="3_t5wki"]
 [ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="4_lxqfu"]
+[ext_resource type="PackedScene" uid="uid://bowi28de02wik" path="res://Enemies/flame_enemy.tscn" id="4_pod1g"]
 [ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="5_eegqj"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="5_g6yf5"]
 [ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="6_es3ue"]
-[ext_resource type="Resource" uid="uid://bm65reesyx77p" path="res://Enemies/Scripts/Waves/wave2.tres" id="7_trqfn"]
-[ext_resource type="Resource" uid="uid://drmgwkjtogx3q" path="res://Enemies/Scripts/Waves/wave3.tres" id="8_trqfn"]
-[ext_resource type="Resource" uid="uid://lpbyj6f26lql" path="res://Enemies/Scripts/Waves/wave4.tres" id="9_pod1g"]
 
 [node name="EnemyTesting" type="Node2D" unique_id=272901374]
 
@@ -23,38 +21,97 @@ texture = ExtResource("3_t5wki")
 
 [node name="Pools" type="Node" parent="." unique_id=997206863]
 
-[node name="EnemyPool" type="Node2D" parent="Pools" unique_id=257093939]
+[node name="SimpleEnemyPool" type="Node2D" parent="Pools" unique_id=257093939]
 position = Vector2(-680, 174)
 script = ExtResource("2_2vp3m")
 object_reference = ExtResource("1_x5sa1")
 pool_name = "Enemy"
 object_count = 1
 
-[node name="EnemySpawnManager" type="Node" parent="." unique_id=1618637414 node_paths=PackedStringArray("pool_reference", "list_simple_spawners", "list_enemy_spots")]
+[node name="FlameEnemyPool" type="Node2D" parent="Pools" unique_id=1352773876]
+position = Vector2(-680, 174)
+script = ExtResource("2_2vp3m")
+object_reference = ExtResource("4_pod1g")
+pool_name = "FlameEnemy"
+object_count = 1
+
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=1618637414 node_paths=PackedStringArray("pool_reference", "list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
 script = ExtResource("4_lxqfu")
-pool_reference = NodePath("../Pools/EnemyPool")
+pool_reference = NodePath("../Pools/SimpleEnemyPool")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
-list_enemy_spots = [NodePath("EnemySpots/Spot"), NodePath("EnemySpots/Spot2"), NodePath("EnemySpots/Spot3"), NodePath("EnemySpots/Spot4")]
-list_wave_data = Array[ExtResource("5_eegqj")]([ExtResource("6_es3ue"), ExtResource("7_trqfn"), ExtResource("8_trqfn"), ExtResource("9_pod1g")])
+list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
+list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]
+list_wave_data = Array[ExtResource("5_eegqj")]([ExtResource("6_es3ue"), ExtResource("6_es3ue"), ExtResource("6_es3ue"), ExtResource("6_es3ue")])
+time_between_enemy_spawns = 0.1
 
 [node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=180981265]
 
 [node name="EnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1957907348 instance=ExtResource("5_g6yf5")]
 position = Vector2(-151, 815)
+pool_name = "Enemy"
 
 [node name="EnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=560514692 instance=ExtResource("5_g6yf5")]
 position = Vector2(2145, 815)
+pool_name = "Enemy"
+
+[node name="FlameEnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1617697048 instance=ExtResource("5_g6yf5")]
+position = Vector2(1276, 304)
+pool_name = "FlameEnemy"
+
+[node name="FlameEnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=957212826 instance=ExtResource("5_g6yf5")]
+position = Vector2(1455, 666)
+pool_name = "FlameEnemy"
 
 [node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=382063813]
 
-[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=493952963]
+[node name="Middle" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=968020429]
+
+[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=493952963]
 position = Vector2(481, 822)
 
-[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1583517132]
+[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1583517132]
 position = Vector2(831, 778)
 
-[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1858952875]
+[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1858952875]
 position = Vector2(1233, 778)
 
-[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1885990094]
+[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1885990094]
 position = Vector2(1472, 808)
+
+[node name="Windows" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=705231611]
+
+[node name="w_Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=21798788]
+position = Vector2(1153, 307)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot" unique_id=1853037679]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -31.99
+offset_top = -75.9
+offset_right = 25.65
+offset_bottom = 53.629997
+
+[node name="w_Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1062619726]
+position = Vector2(1394, 307)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot2" unique_id=1888884841]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -29.00001
+offset_top = -76.00001
+offset_right = 28.63999
+offset_bottom = 53.52999
+
+[node name="Truck" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=438559198]
+position = Vector2(1452, 575)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Truck" unique_id=1494042355]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -58.000008
+offset_top = -55.000008
+offset_right = 63.409996
+offset_bottom = 31.079994

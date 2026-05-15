@@ -24,13 +24,13 @@ func make_instance() -> PoolObject:
 	add_child(pass_instance)
 
 	var obj = pass_instance as PoolObject
-	obj.pool_ref = self
+	obj.pool_ref = self as Node
 	obj.change_state(false, false)
 
 	return pass_instance
 
 
-func get_instance() -> Node2D:
+func get_instance(take_child : bool = false, parent : Control = null) -> Node2D:
 
 	var returned_instance
 
@@ -44,6 +44,11 @@ func get_instance() -> Node2D:
 
 	var obj = returned_instance as PoolObject
 	obj.change_state(true)
+
+	if(take_child):
+		var node = returned_instance as Node2D
+		obj.foreign_parent = true
+		node.reparent(parent)
 
 	return returned_instance
 
