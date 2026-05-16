@@ -6,6 +6,10 @@ extends Sprite2D
 var is_moving: bool = false
 var scale_tween: Tween
 var use_mouse: bool = true
+var starting_scale : Vector2
+
+func _ready() -> void:
+	starting_scale = self.scale
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -32,7 +36,6 @@ func _process(delta: float) -> void:
 	#else:
 		#global_position = get_global_mouse_position()
 		
-	lose_accuracy()
 	clamp_to_camera()
 		
 		
@@ -46,7 +49,7 @@ func lose_accuracy() -> void:
 			scale_tween.kill()
 			
 		scale_tween = get_tree().create_tween()
-		var target_scale = Vector2(1.25, 1.25) if is_moving else Vector2(1.0, 1.0)
+		var target_scale = Vector2(0.4, 0.4) if is_moving else starting_scale
 		scale_tween.tween_property(self, "scale", target_scale, 0.2)
 
 func clamp_to_camera() -> void:
