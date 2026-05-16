@@ -14,7 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="12_cnkka"]
 [ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="13_537hp"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="16_7118b"]
+[ext_resource type="PackedScene" uid="uid://bjxa6vt1a8uld" path="res://Enemies/Boss/Star.tscn" id="16_tdcnl"]
 [ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="17_ghsg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdcnl"]
+size = Vector2(296, 751)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghsg3"]
+size = Vector2(2017, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0vet"]
+size = Vector2(2020, 28.355389)
 
 [node name="MainLevel" type="Node2D" unique_id=625763660]
 
@@ -32,10 +42,58 @@ drag_horizontal_enabled = true
 script = ExtResource("2_3i8sr")
 background = NodePath("../../CollagePhbg")
 
-[node name="LimiteDroite" parent="." unique_id=69021630 instance=ExtResource("3_2m8hl")]
+[node name="Colliders" type="Node" parent="." unique_id=1469063067]
 
-[node name="LimiteGauche" parent="." unique_id=302279517 instance=ExtResource("3_2m8hl")]
-position = Vector2(1717, 0)
+[node name="LimiteDroite" parent="Colliders" unique_id=69021630 instance=ExtResource("3_2m8hl")]
+position = Vector2(1722, 0)
+
+[node name="Area2D" type="Area2D" parent="Colliders/LimiteDroite" unique_id=1444496202]
+position = Vector2(-491, 3)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/LimiteDroite/Area2D" unique_id=107001705]
+position = Vector2(138, 365.5)
+shape = SubResource("RectangleShape2D_tdcnl")
+
+[node name="LimiteGauche" parent="Colliders" unique_id=302279517 instance=ExtResource("3_2m8hl")]
+position = Vector2(-3, 0)
+
+[node name="Area2D" type="Area2D" parent="Colliders/LimiteGauche" unique_id=1353307367]
+position = Vector2(-491, 3)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/LimiteGauche/Area2D" unique_id=1130957162]
+position = Vector2(138, 365.5)
+shape = SubResource("RectangleShape2D_tdcnl")
+
+[node name="Plafond" type="StaticBody2D" parent="Colliders" unique_id=794398407]
+position = Vector2(-206, -78)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Area2D" type="Area2D" parent="Colliders/Plafond" unique_id=1996659426]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Plafond/Area2D" unique_id=1372091386]
+position = Vector2(710, 6)
+shape = SubResource("RectangleShape2D_ghsg3")
+
+[node name="Sol" type="StaticBody2D" parent="Colliders" unique_id=664452709]
+position = Vector2(-206, 818)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Area2D" type="Area2D" parent="Colliders/Sol" unique_id=1802093452]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Sol/Area2D" unique_id=1933776604]
+position = Vector2(713, 23.5)
+scale = Vector2(1, 7.935)
+shape = SubResource("RectangleShape2D_o0vet")
 
 [node name="CollagePhbg" type="Sprite2D" parent="." unique_id=380766422]
 position = Vector2(502, 368)
@@ -83,6 +141,13 @@ script = ExtResource("6_ctw1c")
 object_reference = ExtResource("12_cnkka")
 pool_name = "BulletFireEnemy"
 object_count = 1
+
+[node name="StarPool" type="Node2D" parent="Pools" unique_id=1152968037]
+position = Vector2(-680, 174)
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("16_tdcnl")
+pool_name = "StarPool"
+object_count = 5
 
 [node name="EnemySpawnManager" type="Node" parent="." unique_id=335210387 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
 script = ExtResource("13_537hp")

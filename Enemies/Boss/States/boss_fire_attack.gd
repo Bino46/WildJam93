@@ -7,13 +7,13 @@ var enemy_script : boss
 @export var max_bezier_height = 10
 var finished
 
-var player : Node2D
+var player_ref : Node2D
 
 func Enter() -> void:
 	finished = false
 	if(enemy_script == null):
 		var level = get_tree().get_root().get_node("MainLevel")
-		player = level.get_node("Player") as Node2D
+		player_ref = level.get_node("Player") as Node2D
 		enemy_script = enemy as boss
 
 	throw_semi_circle()
@@ -40,7 +40,7 @@ func throw_semi_circle():
 	var direction_sign = 1
 	var start = 0
 
-	new_pos.y = player.global_position.y
+	new_pos.y = player_ref.global_position.y
 
 	for i in range(projectile_count):
 

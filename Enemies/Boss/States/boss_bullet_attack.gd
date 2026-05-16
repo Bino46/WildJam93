@@ -5,13 +5,13 @@ var enemy_script : boss
 @export var projectile_count : int = 15
 @export var fire_rate : float = 0.2 
 @export var precision_radius : float = 1
-var player : Node2D
+var player_ref : Node2D
 
 func Enter() -> void:
 
-	if(player==null):
+	if(player_ref==null):
 		var level = get_tree().get_root().get_node("MainLevel")
-		player = level.get_node("Player") as Node2D
+		player_ref = level.get_node("Player") as Node2D
 		enemy_script = enemy as boss
 
 	shoot_bullet()
@@ -32,8 +32,8 @@ func get_player_approximate_position() -> Vector2:
 	var rdm_circle = randf_range(-1, 1)
 
 	var approximation : Vector2
-	approximation.x = player.global_position.x + cos(rdm_circle) * rdm
-	approximation.y = player.global_position.y + sin(rdm_circle) * rdm
+	approximation.x = player_ref.global_position.x + cos(rdm_circle) * rdm
+	approximation.y = player_ref.global_position.y + sin(rdm_circle) * rdm
 
 	return approximation
 

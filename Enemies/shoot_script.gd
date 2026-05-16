@@ -1,7 +1,7 @@
 class_name shoot_script
 extends Node2D
 
-var player : Node2D
+var player_ref : Node2D
 var player_chara : CharacterBody2D
 
 var third_point : Vector2
@@ -10,8 +10,8 @@ var third_point : Vector2
 
 func _ready() -> void:
 	var level = get_tree().get_root().get_node("MainLevel")
-	player = level.get_node("Player") as Node2D
-	player_chara = player as CharacterBody2D
+	player_ref = level.get_node("Player") as Node2D
+	player_chara = player_ref as CharacterBody2D
 
 func shoot_projectile(simple):
 
@@ -23,7 +23,7 @@ func shoot_projectile(simple):
 func shoot_simple():
 
 	var _proj = pool_manager._instance.get_from_pool("BulletEnemy") as Bullet
-	_proj.launch(player.global_position, global_position)
+	_proj.launch(player_ref.global_position, global_position)
 
 func shoot_fire():
 	$"../AnimatedSprite2D".play("attack")

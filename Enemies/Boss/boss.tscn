@@ -3,19 +3,32 @@
 [ext_resource type="Script" uid="uid://sqruekvkynk0" path="res://Enemies/Boss/boss.gd" id="1_bh1y1"]
 [ext_resource type="Texture2D" uid="uid://dmg38ee0qwkv1" path="res://images/Jam_AlienSprites_Boss.png" id="1_crsr5"]
 [ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="3_bh1y1"]
+[ext_resource type="Texture2D" uid="uid://bxrjobpi2cgqu" path="res://Enemies/Boss/Paf.png" id="3_es76l"]
 [ext_resource type="Script" uid="uid://cg4twry573wmo" path="res://Enemies/Boss/boss_health.gd" id="3_p0c6u"]
 [ext_resource type="Script" uid="uid://7bka2585g02f" path="res://plofTestingGround/Scripts/States/state.gd" id="4_g8f7v"]
 [ext_resource type="Script" uid="uid://by76j3sh26bpk" path="res://Enemies/Boss/States/Walk.gd" id="4_iiw74"]
 [ext_resource type="Script" uid="uid://dr0buaex2ry0" path="res://Enemies/Boss/States/boss_bullet_attack.gd" id="6_2rwbp"]
 [ext_resource type="Script" uid="uid://cck51ufinaoih" path="res://Enemies/Boss/States/boss_fire_attack.gd" id="7_es76l"]
-[ext_resource type="Script" uid="uid://nqpyplm01ce7" path="res://Enemies/Boss/States/boss_missile_attack.gd" id="7_p0c6u"]
+[ext_resource type="Script" uid="uid://bugqo6n4efsnm" path="res://Enemies/Boss/States/boss_sniper_attack.gd" id="8_p0c6u"]
+
+[sub_resource type="Curve" id="Curve_p0c6u"]
+_data = [Vector2(1e-05, 0.09523809), 0.0, 0.0, 0, 0, Vector2(1, 0.5476191), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_es76l"]
+_data = [Vector2(0, 0.035714388), 0.0, 0.0, 0, 0, Vector2(0.2087087, 0.7857144), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8k2ks"]
+colors = PackedColorArray(1, 0.81, 0.81, 1, 1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhtxu"]
 size = Vector2(149, 378)
 
 [node name="Boss" type="Node2D" unique_id=173163556]
 script = ExtResource("1_bh1y1")
-attack_cooldown = 3.0
+attack_cooldown = 1.0
+attack_count = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=977761408]
 texture = ExtResource("1_crsr5")
@@ -26,15 +39,36 @@ region_rect = Rect2(0, 50, 800, 400)
 [node name="ShootSpot" type="Node2D" parent="." unique_id=431585833]
 position = Vector2(7, -87)
 
+[node name="AimLine2D" type="Line2D" parent="." unique_id=725326790]
+points = PackedVector2Array(0, 0, 0, 0)
+width_curve = SubResource("Curve_p0c6u")
+default_color = Color(1, 0, 0, 0.45882353)
+
+[node name="Sprite2D" type="Sprite2D" parent="AimLine2D" unique_id=2124109925]
+position = Vector2(7, -87)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_es76l")
+
+[node name="SniperProjectile" type="Line2D" parent="." unique_id=270673027]
+visible = false
+points = PackedVector2Array(100, 0, 75, 0, 50, 0, 25, 0, 0, 0)
+width = 20.0
+width_curve = SubResource("Curve_es76l")
+gradient = SubResource("Gradient_8k2ks")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1873631616]
+collision_mask = 4
+
 [node name="Area2D" type="Area2D" parent="." unique_id=182753821]
 collision_mask = 2
 monitorable = false
 script = ExtResource("3_p0c6u")
-_health = 50.0
+_health = 75.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1692536652]
 position = Vector2(11.5, 4)
 shape = SubResource("RectangleShape2D_mhtxu")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="StateMachine" type="Node" parent="." unique_id=154850340 node_paths=PackedStringArray("current_state")]
 script = ExtResource("3_bh1y1")
@@ -58,8 +92,12 @@ max_angle = 1500.0
 max_bezier_height = -30
 metadata/_custom_type_script = "uid://7bka2585g02f"
 
-[node name="MissileAttack" type="Node" parent="StateMachine" unique_id=2004062455]
-script = ExtResource("7_p0c6u")
+[node name="SniperAttack" type="Node" parent="StateMachine" unique_id=1728700316]
+script = ExtResource("8_p0c6u")
+charge_time = 7.0
+charge_sprite_size = 4.0
+charge_sprite_rotation = 5.0
+star_count = 3
 metadata/_custom_type_script = "uid://7bka2585g02f"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1537030050]

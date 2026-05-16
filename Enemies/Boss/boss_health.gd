@@ -2,9 +2,10 @@ extends Node
 
 @export var _health : float = 3
 var current_health
+var boss_script
 
 func _ready() -> void:
-	print("set boss health")
+	boss_script = get_parent() as boss
 	current_health = _health
 
 func take_damage():
@@ -23,4 +24,7 @@ func reset_health():
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.get_collision_layer_value(2)):
-		take_damage()
+		if(!boss_script.is_protected):
+			take_damage()
+		else:
+			boss_script.reflect_bullet(area.global_position)
