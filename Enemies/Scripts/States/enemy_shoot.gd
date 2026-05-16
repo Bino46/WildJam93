@@ -8,6 +8,7 @@ var parent
 # Shoot
 @export var shoot_wait_time : float = 3
 @export var wait_before_retreat : float = 2
+@export var simple_shoot : bool
 
 func Enter() -> void: 
 	shoot_timer = shoot_wait_time
@@ -44,7 +45,7 @@ func shoot():
 	shot = true
 
 	var pew = get_node("../../ShootScript") as shoot_script
-	pew.shoot_projectile()
+	pew.shoot_projectile(simple_shoot)
 
 	parent.change_color_id(2)
 
