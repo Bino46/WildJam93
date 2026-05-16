@@ -17,21 +17,26 @@ var shotgun_ammo : int = 20
 @export var max_shotgun_ammo : int = 20
 
 @onready var hurtbox = $Hurtbox/CollisionShape2D
+@onready var animated_sprite = $AnimatedSprite2D3
 
-func _process(delta: float) -> void:
+@onready var state_machine = $StateMachine
+
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 	
-
 func die() -> void:
-	life -= 1
-	if life <= 0:
-		print ("Game Over")
-	#Animation game over, retour au menu
-	else:
-		#Animation mort, puis remis debout
-		print("C'est reparti")
-		#Logique de remise en jeu
+	state_machine.current_state.transitioned.emit("Die")
+
+#func die() -> void:
+	#life -= 1
+	#if life <= 0:
+		#print ("Game Over")
+	##Animation game over, retour au menu
+	#else:
+		##Animation mort, puis remis debout
+		#print("C'est reparti")
+		##Logique de remise en jeu
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

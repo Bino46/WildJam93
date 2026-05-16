@@ -62,3 +62,4 @@ position = Vector2(735, 174)
 [node name="PoolPlayerBullet" type="Node" parent="." unique_id=1298391455]
 script = ExtResource("6_y6l0o")
 object_reference = ExtResource("7_nln75")
+pool_name = "PoolPlayerBullet"

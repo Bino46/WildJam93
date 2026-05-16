@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ot0ynbxkn5md" path="res://plofTestingGround/Scripts/States/rolling_right.gd" id="5_7pwwr"]
 [ext_resource type="Script" uid="uid://nqygrf7gobfo" path="res://plofTestingGround/Scripts/States/rolling_left.gd" id="6_us17c"]
 [ext_resource type="Texture2D" uid="uid://bvbo6p8rcndlh" path="res://images/Jam_CharacterSprites.png" id="7_eafx7"]
+[ext_resource type="Script" uid="uid://dvb1vpu1c417p" path="res://plofTestingGround/Scripts/States/die.gd" id="8_5vawc"]
 [ext_resource type="Script" uid="uid://cxny3peadyign" path="res://plofTestingGround/Scripts/States/jump.gd" id="8_jhwth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhwth"]
@@ -131,6 +132,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w62yd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aed4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dji4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aed4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dji4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aed4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dji4n")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aed4x")
@@ -278,8 +297,8 @@ script = ExtResource("1_a5q2u")
 texture_filter = 1
 position = Vector2(0, -52)
 sprite_frames = SubResource("SpriteFrames_5vawc")
-animation = &"jump"
-frame = 3
+animation = &"die"
+frame = 10
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1366114351]
@@ -310,6 +329,9 @@ move_speed = 600
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1184568980]
 script = ExtResource("8_jhwth")
+
+[node name="Die" type="Node" parent="StateMachine" unique_id=1619058247]
+script = ExtResource("8_5vawc")
 
 [node name="Timer" type="Timer" parent="." unique_id=370722036]
 
