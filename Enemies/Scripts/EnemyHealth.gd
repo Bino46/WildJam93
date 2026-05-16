@@ -11,6 +11,9 @@ func take_damage():
 	current_health -= 1
 	
 	if(current_health <= 0):
+		var state = get_node("../StateMachine") as StateMachine
+		state.on_child_transitioned("Idle")
+
 		var parent = get_parent() as simple_enemy
 		Global.add_score(parent.score_added)
 		parent.change_state(false)
