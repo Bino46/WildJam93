@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://bo2375ig5c57t"]
+
+[ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_dfyo3"]
+[ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_3i8sr"]
+[ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="3_2m8hl"]
+[ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="4_hy0wy"]
+[ext_resource type="PackedScene" uid="uid://c3rg13hv6u62y" path="res://plofTestingGround/scenes/cross_hair.tscn" id="5_rhkci"]
+[ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="6_ctw1c"]
+[ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="7_2d1u3"]
+[ext_resource type="PackedScene" uid="uid://dgwcsbdw530ob" path="res://Enemies/simple_enemy.tscn" id="8_pnepw"]
+[ext_resource type="PackedScene" uid="uid://bowi28de02wik" path="res://Enemies/flame_enemy.tscn" id="9_e2ivd"]
+[ext_resource type="PackedScene" uid="uid://cluahbhkqg6ka" path="res://Tools/Hitboxes/Hitbox.tscn" id="10_bgsfg"]
+[ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="11_8qn7j"]
+[ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="12_cnkka"]
+[ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="13_537hp"]
+[ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="14_3oat4"]
+[ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="15_n80mf"]
+[ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="16_7118b"]
+
+[node name="MainLevel" type="Node2D" unique_id=625763660]
+
+[node name="Player" parent="." unique_id=1275736653 node_paths=PackedStringArray("cross_hair", "level") instance=ExtResource("1_dfyo3")]
+z_index = 2
+position = Vector2(511, 590)
+cross_hair = NodePath("../CrossHair")
+level = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=52321186 node_paths=PackedStringArray("background")]
+position = Vector2(0, -141)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+script = ExtResource("2_3i8sr")
+background = NodePath("../../CollagePhbg")
+
+[node name="LimiteDroite" parent="." unique_id=69021630 instance=ExtResource("3_2m8hl")]
+
+[node name="LimiteGauche" parent="." unique_id=302279517 instance=ExtResource("3_2m8hl")]
+position = Vector2(1717, 0)
+
+[node name="CollagePhbg" type="Sprite2D" parent="." unique_id=380766422]
+position = Vector2(502, 368)
+scale = Vector2(4, 4)
+texture = ExtResource("4_hy0wy")
+
+[node name="CrossHair" parent="." unique_id=1882000265 instance=ExtResource("5_rhkci")]
+position = Vector2(512.0001, 392)
+
+[node name="PoolPlayerBullet" type="Node" parent="." unique_id=834284641]
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("7_2d1u3")
+pool_name = "BulletPlayer"
+
+[node name="Pools" type="Node" parent="." unique_id=1878606314]
+
+[node name="SimpleEnemyPool" type="Node2D" parent="Pools" unique_id=2020979135]
+position = Vector2(-680, 174)
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("8_pnepw")
+pool_name = "Enemy"
+object_count = 1
+
+[node name="FlameEnemyPool" type="Node2D" parent="Pools" unique_id=491741986]
+position = Vector2(-680, 174)
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("9_e2ivd")
+pool_name = "FlameEnemy"
+object_count = 1
+
+[node name="HitboxesPool" type="Node2D" parent="Pools" unique_id=90458264]
+position = Vector2(-680, 174)
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("10_bgsfg")
+pool_name = "Hitbox"
+
+[node name="PoolEnemyBullet" type="Node" parent="Pools" unique_id=775555976]
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("11_8qn7j")
+pool_name = "BulletEnemy"
+object_count = 1
+
+[node name="PoolFireEnemyBullet" type="Node" parent="Pools" unique_id=1565259527]
+script = ExtResource("6_ctw1c")
+object_reference = ExtResource("12_cnkka")
+pool_name = "BulletFireEnemy"
+object_count = 1
+
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=335210387 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
+script = ExtResource("13_537hp")
+list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
+list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
+list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]
+list_wave_data = Array[ExtResource("14_3oat4")]([ExtResource("15_n80mf"), ExtResource("15_n80mf"), ExtResource("15_n80mf"), ExtResource("15_n80mf")])
+time_between_enemy_spawns = 0.1
+
+[node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1150552629]
+
+[node name="EnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1957907348 instance=ExtResource("16_7118b")]
+position = Vector2(-704, 625)
+pool_name = "Enemy"
+
+[node name="EnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=212363936 instance=ExtResource("16_7118b")]
+position = Vector2(1592, 625)
+pool_name = "Enemy"
+
+[node name="FlameEnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1800244675 instance=ExtResource("16_7118b")]
+position = Vector2(743, 176)
+pool_name = "FlameEnemy"
+
+[node name="FlameEnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1426609263 instance=ExtResource("16_7118b")]
+position = Vector2(902, 476)
+pool_name = "FlameEnemy"
+
+[node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=1771527894]
+
+[node name="Middle" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=519039728]
+
+[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=79969903]
+position = Vector2(-54, 591)
+
+[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1636840803]
+position = Vector2(296, 547)
+
+[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=674641243]
+position = Vector2(698, 547)
+
+[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1616765910]
+position = Vector2(937, 577)
+
+[node name="Windows" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=1758976756]
+
+[node name="w_Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=330358669]
+position = Vector2(647, 176)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot" unique_id=1820811616]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -22.00001
+offset_top = -52.0
+offset_right = 23.539991
+offset_bottom = 50.059998
+metadata/_edit_use_anchors_ = true
+
+[node name="w_Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1925935833]
+position = Vector2(841, 175)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot2" unique_id=549841090]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.00001
+offset_top = -50.0
+offset_right = 22.294989
+offset_bottom = 51.305
+metadata/_edit_use_anchors_ = true
+
+[node name="Truck" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1971053139]
+position = Vector2(899, 385)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Truck" unique_id=1619698156]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -58.000008
+offset_top = -55.000008
+offset_right = 63.409996
+offset_bottom = 31.079994
+metadata/_edit_use_anchors_ = true
