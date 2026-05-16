@@ -64,10 +64,10 @@ func increment_time(delta : float):
 #Bezier curve for the fireball
 func bezier_move():
 
-	var a = 1-tween_timer
-	var b = tween_timer * tween_timer
+	var a = 1-lerp_time
+	var b = lerp_time * lerp_time
 
-	var new_pos = (a*a)*start_pos + 2*a*tween_timer*third_point + b * target_pos
+	var new_pos = (a*a)*start_pos + 2*a*lerp_time*third_point + b * target_pos
 
 	global_position = new_pos
 

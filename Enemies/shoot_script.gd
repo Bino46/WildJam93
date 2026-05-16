@@ -2,13 +2,16 @@ class_name shoot_script
 extends Node2D
 
 var player : Node2D
+var player_chara : CharacterBody2D
 
 var third_point : Vector2
 @export var max_bezier_height : float = 50
+@export var projection_amount : float
 
 func _ready() -> void:
 	var level = get_tree().get_root().get_node("MainLevel")
 	player = level.get_node("Player") as Node2D
+	player_chara = player as CharacterBody2D
 
 func shoot_projectile(simple):
 
@@ -25,9 +28,11 @@ func shoot_simple():
 func shoot_fire():
 	third_point.y = max_bezier_height
 
-	third_point.x = global_position.x + (player.global_position.x - global_position.x) * 0.5
+	var player_projection = player_chara.global_position + player_chara.velocity * projection_amount
 	
-	var _proj = pool_manager._instance.get_from_pool("BulletFireEnemy") as Bullet
-	_proj.launch(player.global_position, global_position, third_point)
+	third_point.x = global_position.x + (player_projection.x - global_position.x)
+	
+	var projectile = pool_manager._instance.get_from_pool("BulletFireEnemy") as Bullet
+	projectile.launch(player_projection, global_position, third_point)
 
 	pass
