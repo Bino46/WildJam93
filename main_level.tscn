@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="11_xqiim"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="15_8m212"]
 [ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="16_6pb3s"]
+[ext_resource type="PackedScene" uid="uid://dim2nj1g4brrs" path="res://plofTestingGround/scenes/power_up_shotgun.tscn" id="17_e3ldi"]
 
 [node name="MainLevel" type="Node2D" unique_id=625763660]
 
@@ -167,3 +168,6 @@ offset_top = -55.000008
 offset_right = 63.409996
 offset_bottom = 31.079994
 metadata/_edit_use_anchors_ = true
+
+[node name="PowerUpShotgun" parent="." unique_id=1500165822 instance=ExtResource("17_e3ldi")]
+position = Vector2(213, 223)

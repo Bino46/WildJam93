@@ -9,6 +9,7 @@ extends PlayerState
 @export var shotgun_rate : float = 0.5
 @onready var bullet_pool = $"../../../PoolPlayerBullet"
 @onready var animated_sprite = $"../../AnimatedSprite2D3"
+@onready var camera = $"../../Camera2D"
 
 func Enter() -> void:
 	animated_sprite.play("default")
@@ -70,10 +71,12 @@ func fire_bullet(target: Vector2, origin: Vector2) -> void:
 	var b = bullet_pool.get_instance()
 	b.global_position = player.global_position
 	b.launch(target, origin)
+	camera.add_shake(3.0)
 	
 func fire_shotgun(target_center: Vector2, origin: Vector2) -> void:
 	var pellets = 5
 	var spread_radius = 40.0
+	camera.add_shake(30.0)
 	
 	for i in range(pellets):
 		var angle = randf() * TAU
