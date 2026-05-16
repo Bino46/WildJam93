@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cduauol6ep3fp"]
 
 [ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="1_cqs7g"]
+[ext_resource type="Texture2D" uid="uid://cvddbth0edi8j" path="res://assets/Background.png" id="1_gn4di"]
 [ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="2_y73of"]
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="3_8awku"]
 [ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="4_gn4di"]
@@ -15,34 +16,43 @@ size = Vector2(283, 743)
 
 [node name="Node2D" type="Node2D" unique_id=1834464356]
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2054068125]
+texture_filter = 1
+position = Vector2(962, 545)
+texture = ExtResource("1_gn4di")
+
 [node name="CollagePhbg" type="Sprite2D" parent="." unique_id=155075319]
+visible = false
 position = Vector2(502, 368)
 scale = Vector2(4, 4)
 texture = ExtResource("1_cqs7g")
 
 [node name="Player" parent="." unique_id=1275736653 node_paths=PackedStringArray("cross_hair", "level") instance=ExtResource("2_y73of")]
 z_index = 2
-position = Vector2(534, 586)
+position = Vector2(974, 947)
 cross_hair = NodePath("../CrossHair")
 level = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=957746276 node_paths=PackedStringArray("background")]
-position = Vector2(-21, -136)
+position = Vector2(-29, -402)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 script = ExtResource("3_8awku")
-background = NodePath("../../CollagePhbg")
+background = NodePath("../../Sprite2D")
 
 [node name="StaticBody2D" parent="." unique_id=69021630 instance=ExtResource("4_gn4di")]
+position = Vector2(299, 352)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1767026419]
+position = Vector2(609, 346)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1296437133]
 position = Vector2(1362, 368)
 shape = SubResource("RectangleShape2D_11eft")
 
 [node name="CrossHair" parent="." unique_id=1882000265 instance=ExtResource("5_hejfs")]
-position = Vector2(535, 371)
+position = Vector2(980, 713)
 
 [node name="PoolPlayerBullet" type="Node" parent="." unique_id=763538901]
 unique_name_in_owner = true
