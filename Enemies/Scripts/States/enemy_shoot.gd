@@ -42,8 +42,11 @@ func Physics_update(delta: float) -> void: pass
 
 func shoot():
 	shot = true
+
+	var pew = get_node("../../ShootScript") as shoot_script
+	pew.shoot_projectile()
+
 	parent.change_color_id(2)
-	# do smth
 
 func retreat_mode():
 	is_retreating = true

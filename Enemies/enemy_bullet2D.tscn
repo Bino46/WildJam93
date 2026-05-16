@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bu0yrytgx67r3"]
+
+[ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/Scripts/bullet.gd" id="1_38rcc"]
+[ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_54gl4"]
+
+[node name="EnemyBullet" type="Node2D" unique_id=267890759]
+script = ExtResource("1_38rcc")
+travel_duration = 1.0
+hitbox_duration = 1.0
+layer = 3
+
+[node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_54gl4")]
+script = null

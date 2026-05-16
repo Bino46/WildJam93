@@ -5,6 +5,7 @@
 
 [node name="PlayerBullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_v67i8")
+layer = 2
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_jwtrj")]
 script = null

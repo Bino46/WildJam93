@@ -30,7 +30,7 @@ func die() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area is bullet_hitbox:
+	if area.get_collision_layer_value(3):
 		die()
 		
 func switch_shotgun() -> void:

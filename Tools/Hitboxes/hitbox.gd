@@ -18,6 +18,7 @@ func init_hitbox(timer : float, hitbox_size : hit_size, layer : int, new_pos : V
 	await get_tree().create_timer(timer).timeout
 
 	change_hitbox_state(hitbox_size, false, layer)
+	reset_layer()
 	change_state(false)
 
 
@@ -37,9 +38,11 @@ func change_hitbox_state(hitbox_size : hit_size, activate : bool, layer : int):
 	
 
 func set_layer(layer : int, area):
-
-	for i in range(1, 6):
-
-		area.set_collision_layer_value(i, false)
-
 	area.set_collision_layer_value(layer, true)
+
+func reset_layer():
+	small_hitbox.set_collision_layer_value(2, false)
+	small_hitbox.set_collision_layer_value(3, false)
+
+	long_hitbox.set_collision_layer_value(2, false)
+	long_hitbox.set_collision_layer_value(3, false)
