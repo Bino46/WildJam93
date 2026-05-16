@@ -18,6 +18,7 @@ var shotgun_ammo : int = 20
 
 @onready var hurtbox = $Hurtbox/CollisionShape2D
 @onready var animated_sprite = $AnimatedSprite2D3
+@onready var animation_player = $AnimationPlayer
 
 @onready var state_machine = $StateMachine
 
@@ -51,7 +52,17 @@ func switch_pistol():
 	current_weapon = WeaponType.PISTOL
 	
 func disable_hurtbox() -> void:
-	hurtbox.disabled = true
+	hurtbox.set_deferred("disabled", true)
 	
 func enable_hurtbox() -> void:
-	hurtbox.disabled = false
+	hurtbox.set_deferred("disabled", false)
+	
+func start_invicibility(duration : float = 1.5) -> void:
+	disable_hurtbox()
+	animation_player.play("invicible")
+	await get_tree().create_timer(duration).timeout
+	
+	enable_hurtbox()
+	animation_player.play("RESET")
+	
+	
