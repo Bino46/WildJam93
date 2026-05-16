@@ -4,7 +4,9 @@ class_name Bullet
 @export_group("Tween settings")
 @export var travel_duration: float = 0.2
 @export var final_scale: Vector2 = Vector2(0.5, 0.5)
+@export_group("Bullet settings")
 @export var hitbox_duration : float = 0.1
+@export var layer : int
 
 const INITIAL_SCALE = Vector2.ONE
 
@@ -19,6 +21,6 @@ func launch(target_pos: Vector2, start_pos: Vector2):
 	await tween.finished
 	
 	var new_hitbox = pool_manager._instance.get_from_pool("Hitbox") as hitbox
-	new_hitbox.init_hitbox(hitbox_duration, hitbox.hit_size.Small, 2, global_position)
+	new_hitbox.init_hitbox(hitbox_duration, hitbox.hit_size.Small, layer, global_position)
 
 	change_state(false)

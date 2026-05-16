@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="10_e3ldi"]
 [ext_resource type="PackedScene" uid="uid://cluahbhkqg6ka" path="res://Tools/Hitboxes/Hitbox.tscn" id="10_xqiim"]
 [ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="11_ah7fh"]
+[ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="11_xqiim"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="15_8m212"]
 
 [node name="MainLevel" type="Node2D" unique_id=625763660]
@@ -70,6 +71,12 @@ position = Vector2(-680, 174)
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("10_xqiim")
 pool_name = "Hitbox"
+
+[node name="PoolEnemyBullet" type="Node" parent="Pools" unique_id=775555976]
+script = ExtResource("6_oeaww")
+object_reference = ExtResource("11_xqiim")
+pool_name = "BulletEnemy"
+object_count = 1
 
 [node name="EnemySpawnManager" type="Node" parent="." unique_id=335210387 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
 script = ExtResource("9_6pb3s")
