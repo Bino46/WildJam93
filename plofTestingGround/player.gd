@@ -18,6 +18,11 @@ var shotgun_ammo : int = 20
 
 @onready var hurtbox = $Hurtbox/CollisionShape2D
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+	
+
 func die() -> void:
 	life -= 1
 	if life <= 0:
