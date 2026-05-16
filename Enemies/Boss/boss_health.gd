@@ -1,11 +1,10 @@
-class_name EnemyHealth
-extends Node2D
+extends Node
 
 @export var _health : float = 3
 var current_health
 
 func _ready() -> void:
-	print("set health ", name)
+	print("set boss health")
 	current_health = _health
 
 func take_damage():
@@ -15,9 +14,9 @@ func take_damage():
 		var state = get_node("../StateMachine") as StateMachine
 		state.on_child_transitioned("Idle")
 
-		var parent = get_parent() as simple_enemy
+		var parent = get_parent() as boss
 		Global.add_score(parent.score_added)
-		parent.change_state(false)
+		parent.change_state()
 
 func reset_health():
 	current_health = _health

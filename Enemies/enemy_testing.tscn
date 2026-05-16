@@ -13,9 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="11_8qn7j"]
 [ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="12_cnkka"]
 [ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="13_537hp"]
-[ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="14_3oat4"]
-[ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="15_n80mf"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="16_7118b"]
+[ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="17_ghsg3"]
 
 [node name="MainLevel" type="Node2D" unique_id=625763660]
 
@@ -90,7 +89,6 @@ script = ExtResource("13_537hp")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
 list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
 list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]
-list_wave_data = Array[ExtResource("14_3oat4")]([ExtResource("15_n80mf"), ExtResource("15_n80mf"), ExtResource("15_n80mf"), ExtResource("15_n80mf")])
 time_between_enemy_spawns = 0.1
 
 [node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1150552629]
@@ -167,3 +165,6 @@ offset_top = -55.000008
 offset_right = 63.409996
 offset_bottom = 31.079994
 metadata/_edit_use_anchors_ = true
+
+[node name="Boss" parent="." unique_id=173163556 instance=ExtResource("17_ghsg3")]
+position = Vector2(456, 375)
