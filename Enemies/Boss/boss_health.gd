@@ -22,6 +22,5 @@ func reset_health():
 	current_health = _health
 
 func _on_area_entered(area: Area2D) -> void:
-	print("ouch")
 	if(area.get_collision_layer_value(2)):
 		take_damage()
