@@ -6,7 +6,7 @@
 [node name="EnemyBullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_38rcc")
 travel_duration = 1.0
-hitbox_duration = 1.0
+hitbox_duration = 0.2
 layer = 3
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_54gl4")]
