@@ -7,7 +7,7 @@ var origin : Vector2
 @export var score_added : float
 var curr_state
 var id
-
+	
 func set_direction(start, direction):
 
 	state_machine = get_node("StateMachine") as StateMachine

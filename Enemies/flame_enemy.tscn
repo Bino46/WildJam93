@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://dl245y83n7s2e" path="res://Enemies/Scripts/States/enemy_idle.gd" id="5_7urha"]
 [ext_resource type="Script" uid="uid://dxmlv0m8wuxjy" path="res://Enemies/Scripts/States/enemy_shoot.gd" id="6_t3kfw"]
 [ext_resource type="Script" uid="uid://dutwm6qbgs85g" path="res://Enemies/shoot_script.gd" id="7_iwqj8"]
+[ext_resource type="Texture2D" uid="uid://cwb7gqrvdutfl" path="res://assets/pieuvredegueue/patrick star closed mouth.png" id="8_7urha"]
+[ext_resource type="Texture2D" uid="uid://cx15pwwra7xhc" path="res://assets/pieuvredegueue/patrick star open mouth.png" id="9_t3kfw"]
+[ext_resource type="Script" uid="uid://dj5ynfxij3i77" path="res://Enemies/pieuvre_sprite.gd" id="10_aa2li"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_obgfw"]
 radial_segments = 4
@@ -14,6 +17,90 @@ rings = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fv5p"]
 size = Vector2(54, 54)
+
+[sub_resource type="Animation" id="Animation_w2vl3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_70qy3"]
+resource_name = "roll"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0hu2"]
+_data = {
+&"RESET": SubResource("Animation_w2vl3"),
+&"roll": SubResource("Animation_70qy3")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5hmh"]
+atlas = ExtResource("9_t3kfw")
+region = Rect2(0, 0, 527, 526)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pavn7"]
+atlas = ExtResource("8_7urha")
+region = Rect2(0, 0, 527, 526)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rqn7"]
+atlas = ExtResource("8_7urha")
+region = Rect2(0, 0, 527, 526)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mh560"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5hmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5hmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5hmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5hmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5hmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pavn7")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rqn7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="FlameEnemy" type="Node2D" unique_id=1703660368]
 script = ExtResource("1_obgfw")
@@ -51,5 +138,14 @@ wait_before_retreat = 1.0
 script = ExtResource("7_iwqj8")
 max_bezier_height = -15.0
 projection_amount = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=851756188]
+libraries/ = SubResource("AnimationLibrary_a0hu2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1560917778]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_mh560")
+script = ExtResource("10_aa2li")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

@@ -114,6 +114,16 @@ script = ExtResource("4_jix8l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1748603247]
 
+[node name="Label" type="Label" parent="." unique_id=727690432]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 397.0
+offset_right = 288.0
+offset_bottom = 456.0
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 48
+text = "A GAME MADE BY :"
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [2]]

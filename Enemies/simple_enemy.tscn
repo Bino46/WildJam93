@@ -3,10 +3,34 @@
 [ext_resource type="Script" uid="uid://ixv4fw28a7f" path="res://Enemies/simple_enemy.gd" id="1_57nd7"]
 [ext_resource type="Script" uid="uid://dgg8y3xxslav2" path="res://Enemies/Scripts/EnemyHealth.gd" id="1_d2rvv"]
 [ext_resource type="Script" uid="uid://bg38xhvvys2sx" path="res://plofTestingGround/Scripts/States/state_machine.gd" id="2_22mh4"]
+[ext_resource type="Script" uid="uid://lue8l0lyyhtd" path="res://Enemies/alien_sprite.gd" id="3_ek5t6"]
 [ext_resource type="Script" uid="uid://c0qg65cgrd5yv" path="res://Enemies/Scripts/States/enemy_movement.gd" id="4_57nd7"]
 [ext_resource type="Script" uid="uid://dl245y83n7s2e" path="res://Enemies/Scripts/States/enemy_idle.gd" id="5_aagqh"]
 [ext_resource type="Script" uid="uid://dxmlv0m8wuxjy" path="res://Enemies/Scripts/States/enemy_shoot.gd" id="6_5o5db"]
 [ext_resource type="Script" uid="uid://dutwm6qbgs85g" path="res://Enemies/shoot_script.gd" id="7_g17dh"]
+[ext_resource type="Texture2D" uid="uid://bo16x5erbd2w7" path="res://images/Jam_AlienSprites_Blob.png" id="8_0x8ji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek5t6"]
+atlas = ExtResource("8_0x8ji")
+region = Rect2(0, 0, 280, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdpvw"]
+atlas = ExtResource("8_0x8ji")
+region = Rect2(280, 0, 280, 260)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqiko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek5t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdpvw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="QuadMesh" id="QuadMesh_m5bho"]
 
@@ -17,7 +41,14 @@ size = Vector2(54, 54)
 script = ExtResource("1_57nd7")
 color_at_state = Array[Color]([Color(0, 0.5960624, 0.71653026, 1), Color(1, 0.75, 0, 1), Color(1, 0, 0, 1), Color(0.87934357, 0.8793436, 0.8793435, 1)])
 
+[node name="AlienSprite" type="AnimatedSprite2D" parent="." unique_id=1747950357]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_aqiko")
+frame_progress = 0.10103828
+script = ExtResource("3_ek5t6")
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=296674096]
+visible = false
 scale = Vector2(54.5, 54.5)
 mesh = SubResource("QuadMesh_m5bho")
 

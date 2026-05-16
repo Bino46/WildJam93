@@ -26,6 +26,7 @@ func shoot_simple():
 	_proj.launch(player.global_position, global_position)
 
 func shoot_fire():
+	$"../AnimatedSprite2D".play("attack")
 	third_point.y = max_bezier_height - abs(player_chara.global_position.x - global_position.x) * 0.25
 
 	var player_projection = player_chara.global_position + player_chara.velocity * projection_amount
@@ -34,5 +35,6 @@ func shoot_fire():
 	
 	var projectile = pool_manager._instance.get_from_pool("BulletFireEnemy") as Bullet
 	projectile.launch(player_projection, global_position, third_point)
-
+	await $"../AnimatedSprite2D".animation_finished
+	$"../AnimatedSprite2D".play("default")
 	pass

@@ -2,6 +2,36 @@
 
 [ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/Scripts/bullet.gd" id="1_38rcc"]
 [ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_54gl4"]
+[ext_resource type="Texture2D" uid="uid://b0ugnadjsaeg2" path="res://images/ProjectileAlien_Srpite01.png" id="3_1bwuv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul55c"]
+atlas = ExtResource("3_1bwuv")
+region = Rect2(0, 0, 200, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwdj2"]
+atlas = ExtResource("3_1bwuv")
+region = Rect2(200, 0, 200, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cqhb"]
+atlas = ExtResource("3_1bwuv")
+region = Rect2(400, 0, 200, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gihmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul55c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwdj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cqhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="EnemyBullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_38rcc")
@@ -10,4 +40,12 @@ hitbox_duration = 0.2
 layer = 3
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_54gl4")]
+visible = false
 script = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=95201263]
+texture_filter = 1
+position = Vector2(0, -21)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_gihmy")
+frame_progress = 0.43396798
