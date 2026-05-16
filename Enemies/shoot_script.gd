@@ -26,7 +26,7 @@ func shoot_simple():
 	_proj.launch(player.global_position, global_position)
 
 func shoot_fire():
-	third_point.y = max_bezier_height
+	third_point.y = max_bezier_height - abs(player_chara.global_position.x - global_position.x) * 0.25
 
 	var player_projection = player_chara.global_position + player_chara.velocity * projection_amount
 	

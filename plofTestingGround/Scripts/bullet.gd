@@ -8,11 +8,11 @@ class_name Bullet
 @export_group("Bullet settings")
 @export var hitbox_duration : float = 0.1
 @export var layer : int
+@export var hitbox_style : hitbox.hit_size = hitbox.hit_size.Small
 var tween_timer = 0
 var t = 0
 var lerp_time = 0
 var go : bool = false
-
 
 var start_pos : Vector2
 var target_pos : Vector2
@@ -50,6 +50,9 @@ func increment_time(delta : float):
 
 	tween_timer = inverse_lerp(0, travel_duration, t)
 	lerp_time = remap(tween_timer, 0, travel_duration, 0, 1)
+	
+	if(lerp_time > 1):
+		lerp_time = 1
 
 	if(third_point == Vector2.ZERO):
 		self.global_position = lerp(start_pos, target_pos, lerp_time)
@@ -74,7 +77,7 @@ func bezier_move():
 #When reached destination, equivalent to tween.finished
 func finish_process():
 	var new_hitbox = pool_manager._instance.get_from_pool("Hitbox") as hitbox
-	new_hitbox.init_hitbox(hitbox_duration, hitbox.hit_size.Small, layer, global_position)
+	new_hitbox.init_hitbox(hitbox_duration, hitbox_style, layer, global_position)
 
 	t = 0
 	go = false

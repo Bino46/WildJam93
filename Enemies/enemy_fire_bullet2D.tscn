@@ -8,8 +8,9 @@
 script = ExtResource("1_85h6o")
 travel_duration = 1.0
 final_scale = Vector2(1.2, 1.2)
-hitbox_duration = 1.0
+hitbox_duration = 5.0
 layer = 3
+hitbox_style = 1
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_g7sfb")]
 scale = Vector2(1, 1)
