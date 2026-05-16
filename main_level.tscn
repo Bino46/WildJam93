@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="11_ah7fh"]
 [ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="11_xqiim"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="15_8m212"]
+[ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="16_6pb3s"]
 
 [node name="MainLevel" type="Node2D" unique_id=625763660]
 
@@ -76,6 +77,12 @@ pool_name = "Hitbox"
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("11_xqiim")
 pool_name = "BulletEnemy"
+object_count = 1
+
+[node name="PoolFireEnemyBullet" type="Node" parent="Pools" unique_id=1565259527]
+script = ExtResource("6_oeaww")
+object_reference = ExtResource("16_6pb3s")
+pool_name = "BulletFireEnemy"
 object_count = 1
 
 [node name="EnemySpawnManager" type="Node" parent="." unique_id=335210387 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]

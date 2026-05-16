@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dwor54hnkgxu1"]
+
+[ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/Scripts/bullet.gd" id="1_85h6o"]
+[ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_g7sfb"]
+[ext_resource type="Texture2D" uid="uid://brcjsuuar5qta" path="res://images/ProjectileBase_Srpite.png" id="3_g7sfb"]
+
+[node name="EnemyBullet" type="Node2D" unique_id=267890759]
+script = ExtResource("1_85h6o")
+travel_duration = 1.0
+final_scale = Vector2(1.2, 1.2)
+hitbox_duration = 1.0
+layer = 3
+
+[node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_g7sfb")]
+scale = Vector2(1, 1)
+texture = ExtResource("3_g7sfb")
+hframes = 3
+vframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 600, 600)
+script = null
+
+[node name="Timer" type="Timer" parent="." unique_id=1505153072]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

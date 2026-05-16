@@ -4,6 +4,7 @@ extends PoolObject
 var state_machine
 var origin : Vector2
 @export var color_at_state : Array[Color]
+@export var score_added : float
 var curr_state
 var id
 
