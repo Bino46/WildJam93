@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bcc1kxbpsxb8v"]
+
+[ext_resource type="Script" uid="uid://ehbeau2hhpix" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://cvddbth0edi8j" path="res://assets/Background.png" id="2_jix8l"]
+[ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="3_glbon"]
+[ext_resource type="Script" uid="uid://dd2nwihx5fly6" path="res://plofTestingGround/Scripts/volumeslider.gd" id="4_jix8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(0.24609503, 0.18592149, 0.0017507802, 0.6509804)
+
+[sub_resource type="Theme" id="Theme_qe12f"]
+Button/constants/outline_size = 4
+Button/styles/normal = SubResource("StyleBoxFlat_nlkkf")
+
+[node name="MainMenu" type="Control" unique_id=114706267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=75912943]
+position = Vector2(961, 538)
+texture = ExtResource("2_jix8l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=64812256]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.875
+offset_top = -189.0
+offset_right = 112.875
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2052222588]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_qe12f")
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 48
+text = "START"
+metadata/index = 1
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=448004331]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_qe12f")
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 48
+text = "Controls"
+metadata/index = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1280435211]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_qe12f")
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 48
+text = "Volume"
+metadata/index = 3
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=176099575]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_qe12f")
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+metadata/index = 4
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=596385815]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = 217.0
+offset_right = 345.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25089034, 0.24335751, 0.021534083, 0.8352941)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=772764754]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -15.0
+offset_right = 241.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" type="HSlider" parent="ColorRect/MarginContainer" unique_id=1235157289]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("4_jix8l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1748603247]
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_pressed" binds= [3]]
