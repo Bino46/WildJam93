@@ -343,6 +343,7 @@ stream_6/stream = ExtResource("17_dxdp1")
 
 [node name="Player" type="CharacterBody2D" unique_id=1275736653]
 script = ExtResource("1_a5q2u")
+max_shotgun_ammo = 10
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=697476743]
 texture_filter = 1

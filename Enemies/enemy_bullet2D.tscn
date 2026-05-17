@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_54gl4"]
 [ext_resource type="Texture2D" uid="uid://b0ugnadjsaeg2" path="res://images/ProjectileAlien_Srpite01.png" id="3_1bwuv"]
 [ext_resource type="Texture2D" uid="uid://cyal5nem4jv4s" path="res://images/Sprite_Cible.png" id="4_ul55c"]
+[ext_resource type="AudioStream" uid="uid://dqa3f8k62muq1" path="res://Sounds/Laser_Shot_01.wav" id="5_lwdj2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul55c"]
 atlas = ExtResource("3_1bwuv")
@@ -58,3 +59,6 @@ texture = ExtResource("4_ul55c")
 hframes = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 64)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=628922284]
+stream = ExtResource("5_lwdj2")

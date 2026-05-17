@@ -25,6 +25,8 @@ var aim_sprite : Sprite2D
 
 const INITIAL_SCALE = Vector2.ONE
 
+#@onready var audio = $AudioStreamPlayer
+
 func _ready() -> void:
 	sprite_animation = get_node("BulletSprite") as Sprite2D
 	aim_sprite = get_node("Aim_Sprite2D") as Sprite2D
@@ -81,7 +83,7 @@ func bezier_move():
 
 #When reached destination, equivalent to tween.finished
 func finish_process():
-	if $AudioStreamPlayer:
+	if self.layer == 3:
 		$AudioStreamPlayer.play()
 	var new_hitbox = pool_manager._instance.get_from_pool("Hitbox") as hitbox
 	new_hitbox.init_hitbox(hitbox_duration, hitbox_style, layer, global_position)
