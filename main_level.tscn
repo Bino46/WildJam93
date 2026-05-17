@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btwtd4vki5v7y"]
 
 [ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_6614m"]
-[ext_resource type="Script" path="res://main_level.gd" id="1_pcp4w"]
+[ext_resource type="Script" uid="uid://ci1815bmff4ts" path="res://main_level.gd" id="1_pcp4w"]
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_bhu08"]
 [ext_resource type="Texture2D" uid="uid://becethbi21evv" path="res://assets/far mountains and sky.png" id="3_08fmi"]
 [ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="3_eqmdw"]
@@ -31,9 +31,9 @@
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="27_3brdo"]
 [ext_resource type="Texture2D" uid="uid://yrml83f6eh8n" path="res://assets/Main Menu Sign.png" id="27_5hfqd"]
 [ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="27_ihlsf"]
-[ext_resource type="Script" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
-[ext_resource type="Script" path="res://life.gd" id="28_526cm"]
-[ext_resource type="Script" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
+[ext_resource type="Script" uid="uid://npvp0mvqpdur" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
+[ext_resource type="Script" uid="uid://k0bbddtodhtl" path="res://life.gd" id="28_526cm"]
+[ext_resource type="Script" uid="uid://d4cjpn3082px1" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
 [ext_resource type="Resource" uid="uid://kpu8fs7rpqbk" path="res://Enemies/Scripts/Waves/wave5.tres" id="28_sc5ux"]
 [ext_resource type="Texture2D" uid="uid://c2vb6y68ccjer" path="res://assets/UI health ball.png" id="29_76f81"]
 [ext_resource type="Resource" uid="uid://jrbp4yfu2r11" path="res://Enemies/Scripts/Waves/wave6.tres" id="29_ns5k3"]
@@ -492,6 +492,7 @@ position = Vector2(124, 696)
 sprite_frames = SubResource("SpriteFrames_5hfqd")
 
 [node name="EcranFin" type="Control" parent="UI" unique_id=518198390]
+process_mode = 2
 visible = false
 layout_mode = 3
 anchors_preset = 0
