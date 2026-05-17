@@ -73,10 +73,12 @@ func get_spot(spawner, id):
 		2,3:
 			spawner[1].spawn_enemy(list_enemy_spots[id].position)
 		4,5:
-			var spot_parent = list_enemy_spots[id] as Node2D
-			spawner[0].spawn_enemy(list_enemy_spots[id].position, spot_parent.get_child(0) as Control)
+			# var spot_parent = list_enemy_spots[id] as Node2D
+			# spawner[0].spawn_enemy(list_enemy_spots[id].position, spot_parent.get_child(0) as Control)
+			spawner[0].spawn_enemy(list_enemy_spots[id].position)
 		6:
-			var spot_parent = list_enemy_spots[id] as Node2D
-			spawner[1].spawn_enemy(list_enemy_spots[id].position, spot_parent.get_child(0) as Control)
+			# var spot_parent = list_enemy_spots[id] as Node2D
+			# spawner[1].spawn_enemy(list_enemy_spots[id].position, spot_parent.get_child(0) as Control)
+			spawner[1].spawn_enemy(list_enemy_spots[id].position)
 		
 	
