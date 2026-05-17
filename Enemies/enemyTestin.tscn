@@ -205,9 +205,6 @@ offset_right = 63.409996
 offset_bottom = 31.079994
 metadata/_edit_use_anchors_ = true
 
-[node name="Boss" parent="." unique_id=173163556 instance=ExtResource("26_qub7n")]
-position = Vector2(1056, 629)
-
 [node name="Collisions" type="Node" parent="." unique_id=1879726711]
 
 [node name="LimiteDroite" parent="Collisions" unique_id=69021630 instance=ExtResource("7_uixvl")]
@@ -250,3 +247,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Up" unique_id=849369191]
 position = Vector2(1433, 114.5)
 shape = SubResource("RectangleShape2D_yj7eq")
+
+[node name="Boss" parent="." unique_id=173163556 instance=ExtResource("26_qub7n")]
+position = Vector2(1025, 759)

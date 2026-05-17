@@ -62,4 +62,4 @@ func _on_timer_timeout() -> void:
 	anim_id += 1
 
 	if(sprite_animation != null):
-		sprite_animation.frame = anim_id % 3
+		sprite_animation.frame = anim_id % sprite_animation.hframes
