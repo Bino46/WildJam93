@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="7_uixvl"]
 [ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="8_5quah"]
 [ext_resource type="PackedScene" uid="uid://c3rg13hv6u62y" path="res://plofTestingGround/scenes/cross_hair.tscn" id="9_t52tc"]
-[ext_resource type="PackedScene" uid="uid://dim2nj1g4brrs" path="res://plofTestingGround/scenes/power_up_shotgun.tscn" id="10_0xk0a"]
 [ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="11_6s8x0"]
 [ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="12_5n626"]
 [ext_resource type="PackedScene" uid="uid://dgwcsbdw530ob" path="res://Enemies/simple_enemy.tscn" id="13_ktrpb"]
@@ -73,9 +72,6 @@ texture = ExtResource("8_5quah")
 
 [node name="CrossHair" parent="." unique_id=1882000265 instance=ExtResource("9_t52tc")]
 position = Vector2(1026, 698)
-
-[node name="PowerUpShotgun" parent="." unique_id=1500165822 instance=ExtResource("10_0xk0a")]
-position = Vector2(213, 223)
 
 [node name="PoolPlayerBullet" type="Node" parent="." unique_id=1550696729]
 script = ExtResource("11_6s8x0")
