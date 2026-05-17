@@ -5,5 +5,7 @@ enum SPOTS {Middle1 = 0, Middle2, Middle3, Roof1, Roof2, Air1, Air2}
 
 @export var simple_enemy_count : int
 @export var flame_enemy_count : int
+@export var is_boss_spawn : bool
 @export var simple_enemy_spot : Array[SPOTS]
 @export var flame_enemy_spot : Array[SPOTS]
+@export var boss_enemy_spot : Array[SPOTS]

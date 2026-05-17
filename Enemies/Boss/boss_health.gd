@@ -1,3 +1,4 @@
+class_name boss_health
 extends Node
 
 @export var _health : float = 3
