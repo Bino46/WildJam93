@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://btwtd4vki5v7y"]
 
 [ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_6614m"]
-[ext_resource type="Script" path="res://main_level.gd" id="1_pcp4w"]
+[ext_resource type="Script" uid="uid://ci1815bmff4ts" path="res://main_level.gd" id="1_pcp4w"]
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_bhu08"]
 [ext_resource type="Texture2D" uid="uid://becethbi21evv" path="res://assets/far mountains and sky.png" id="3_08fmi"]
 [ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="3_eqmdw"]
 [ext_resource type="Texture2D" uid="uid://c4jemngo17vpl" path="res://assets/mountains.png" id="4_8m212"]
 [ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="4_uhmka"]
 [ext_resource type="PackedScene" uid="uid://c3rg13hv6u62y" path="res://plofTestingGround/scenes/cross_hair.tscn" id="5_5fjre"]
-[ext_resource type="Texture2D" uid="uid://bkdkaiy430bt3" path="res://assets/path and mountains.png" id="5_76f81"]
 [ext_resource type="Texture2D" uid="uid://whl84jfvpvol" path="res://assets/path and houses.png" id="5_xjl4t"]
 [ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="6_oeaww"]
 [ext_resource type="Texture2D" uid="uid://d3g2abji1o54g" path="res://assets/alien spaceship[.png" id="6_t3g51"]
@@ -16,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dgwcsbdw530ob" path="res://Enemies/simple_enemy.tscn" id="8_xqiim"]
 [ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="9_6pb3s"]
 [ext_resource type="PackedScene" uid="uid://bowi28de02wik" path="res://Enemies/flame_enemy.tscn" id="9_htena"]
-[ext_resource type="Texture2D" uid="uid://bgon6bb65xijx" path="res://assets/houses.png" id="9_ihlsf"]
 [ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="10_e3ldi"]
 [ext_resource type="PackedScene" uid="uid://cluahbhkqg6ka" path="res://Tools/Hitboxes/Hitbox.tscn" id="10_xqiim"]
 [ext_resource type="Resource" uid="uid://n2jbjonv8a6y" path="res://Enemies/Scripts/Waves/wave1.tres" id="11_ah7fh"]
@@ -29,13 +27,13 @@
 [ext_resource type="Resource" uid="uid://drmgwkjtogx3q" path="res://Enemies/Scripts/Waves/wave3.tres" id="23_2px6s"]
 [ext_resource type="Resource" uid="uid://bl8db3b622eby" path="res://Enemies/Scripts/Waves/Boss.tres" id="24_526cm"]
 [ext_resource type="Resource" uid="uid://lpbyj6f26lql" path="res://Enemies/Scripts/Waves/wave4.tres" id="24_7256s"]
-[ext_resource type="Script" uid="uid://bl02fh143crnp" path="res://Enemies/Boss/boss_spawn.gd" id="26_76f81"]
+[ext_resource type="Script" path="res://Enemies/Boss/boss_spawn.gd" id="26_76f81"]
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="27_3brdo"]
 [ext_resource type="Texture2D" uid="uid://yrml83f6eh8n" path="res://assets/Main Menu Sign.png" id="27_5hfqd"]
 [ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="27_ihlsf"]
-[ext_resource type="Script" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
-[ext_resource type="Script" path="res://life.gd" id="28_526cm"]
-[ext_resource type="Script" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
+[ext_resource type="Script" uid="uid://npvp0mvqpdur" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
+[ext_resource type="Script" uid="uid://k0bbddtodhtl" path="res://life.gd" id="28_526cm"]
+[ext_resource type="Script" uid="uid://d4cjpn3082px1" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
 [ext_resource type="Resource" uid="uid://kpu8fs7rpqbk" path="res://Enemies/Scripts/Waves/wave5.tres" id="28_sc5ux"]
 [ext_resource type="Texture2D" uid="uid://c2vb6y68ccjer" path="res://assets/UI health ball.png" id="29_76f81"]
 [ext_resource type="Resource" uid="uid://jrbp4yfu2r11" path="res://Enemies/Scripts/Waves/wave6.tres" id="29_ns5k3"]
@@ -44,6 +42,7 @@
 [ext_resource type="Resource" uid="uid://ct5strgenmsbs" path="res://Enemies/Scripts/Waves/wave8.tres" id="31_q3aq3"]
 [ext_resource type="Resource" uid="uid://cqwlv2nll1eeo" path="res://Enemies/Scripts/Waves/wave9.tres" id="32_3cxdw"]
 [ext_resource type="Resource" uid="uid://bujbf3v4o646q" path="res://Enemies/Scripts/Waves/wave10.tres" id="33_ss8ir"]
+[ext_resource type="Script" uid="uid://uekrk8leouyh" path="res://ecran_fin.gd" id="43_p8ta1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76f81"]
 size = Vector2(290, 1103)
@@ -202,10 +201,6 @@ motion_scale = Vector2(0.7, 0.7)
 [node name="Mountains" type="Sprite2D" parent="Parallax/ParallaxLayer2" unique_id=805840943]
 texture = ExtResource("4_8m212")
 
-[node name="Mountains2" type="Sprite2D" parent="Parallax/ParallaxLayer2" unique_id=550431613]
-visible = false
-texture = ExtResource("5_76f81")
-
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax" unique_id=1537819436]
 position = Vector2(1003, 535)
 motion_scale = Vector2(0.05, 0.05)
@@ -226,10 +221,6 @@ position = Vector2(1003, 535)
 
 [node name="PathAndHouses" type="Sprite2D" parent="Parallax/ParallaxLayer" unique_id=1149469122]
 texture = ExtResource("5_xjl4t")
-
-[node name="PathAndHouses2" type="Sprite2D" parent="Parallax/ParallaxLayer" unique_id=1187201227]
-visible = false
-texture = ExtResource("9_ihlsf")
 
 [node name="LimiteDroite" parent="." unique_id=69021630 instance=ExtResource("3_eqmdw")]
 position = Vector2(72, 342)
@@ -280,6 +271,7 @@ texture = ExtResource("4_uhmka")
 
 [node name="CrossHair" parent="." unique_id=1882000265 instance=ExtResource("5_5fjre")]
 position = Vector2(1026, 698)
+cross_speed = 1250.0
 
 [node name="PowerUpShotgun" parent="." unique_id=1500165822 instance=ExtResource("17_e3ldi")]
 position = Vector2(213, 223)
@@ -495,3 +487,60 @@ text = "60"
 texture_filter = 1
 position = Vector2(124, 696)
 sprite_frames = SubResource("SpriteFrames_5hfqd")
+
+[node name="EcranFin" type="Control" parent="UI" unique_id=518198390]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 376.0
+offset_top = 47.0
+offset_right = 1635.0
+offset_bottom = 990.0
+script = ExtResource("43_p8ta1")
+
+[node name="ColorRect" type="ColorRect" parent="UI/EcranFin" unique_id=1310028215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -746.5
+offset_top = -453.5
+offset_right = 782.5
+offset_bottom = 494.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23921569)
+
+[node name="Label" type="Label" parent="UI/EcranFin/ColorRect" unique_id=1939256725]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 212.0
+offset_right = 1315.0
+offset_bottom = 322.0
+theme_override_fonts/font = ExtResource("27_3brdo")
+theme_override_font_sizes/font_size = 80
+text = "THANKS FOR PLAYING !"
+
+[node name="Label2" type="Label" parent="UI/EcranFin/ColorRect" unique_id=1538228457]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 422.0
+offset_right = 1254.0
+offset_bottom = 532.0
+theme_override_fonts/font = ExtResource("27_3brdo")
+theme_override_font_sizes/font_size = 80
+text = "SCORE : "
+
+[node name="Button" type="Button" parent="UI/EcranFin/ColorRect" unique_id=651304154]
+layout_mode = 0
+offset_left = 707.0
+offset_top = 801.0
+offset_right = 818.0
+offset_bottom = 878.0
+theme_override_fonts/font = ExtResource("27_3brdo")
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+
+[connection signal="pressed" from="UI/EcranFin/ColorRect/Button" to="UI/EcranFin" method="_on_button_pressed"]
