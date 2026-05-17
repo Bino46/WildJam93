@@ -10,7 +10,7 @@ rings = 5
 
 [node name="Star" type="Node2D" unique_id=2082452564]
 script = ExtResource("1_63eb6")
-speed = 250.0
+speed = 400.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1120554290]
 

@@ -27,8 +27,8 @@ size = Vector2(149, 378)
 
 [node name="Boss" type="Node2D" unique_id=173163556]
 script = ExtResource("1_bh1y1")
-attack_cooldown = 1.0
-attack_count = 1
+attack_cooldown = 3.0
+attack_count = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=977761408]
 texture = ExtResource("1_crsr5")
@@ -97,7 +97,7 @@ script = ExtResource("8_p0c6u")
 charge_time = 7.0
 charge_sprite_size = 4.0
 charge_sprite_rotation = 5.0
-star_count = 3
+star_count = 5
 metadata/_custom_type_script = "uid://7bka2585g02f"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1537030050]
