@@ -8,6 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://bvbo6p8rcndlh" path="res://images/Jam_CharacterSprites.png" id="7_eafx7"]
 [ext_resource type="Script" uid="uid://dvb1vpu1c417p" path="res://plofTestingGround/Scripts/States/die.gd" id="8_5vawc"]
 [ext_resource type="Script" uid="uid://cxny3peadyign" path="res://plofTestingGround/Scripts/States/jump.gd" id="8_jhwth"]
+[ext_resource type="Script" uid="uid://clf5tx7f8xjva" path="res://plofTestingGround/scenes/gun_sounds.gd" id="9_dji4n"]
+[ext_resource type="AudioStream" uid="uid://bl1nrqjgal56h" path="res://Sounds/gun2.mp3" id="9_w62yd"]
+[ext_resource type="Script" uid="uid://igy5lyiqdvpx" path="res://plofTestingGround/Scripts/gunsounds.gd" id="10_aed4x"]
+[ext_resource type="AudioStream" uid="uid://i4afsmim48q7" path="res://Sounds/gun3.mp3" id="12_fciq5"]
+[ext_resource type="AudioStream" uid="uid://c04kaypc47eee" path="res://Sounds/gun4.mp3" id="13_afjwv"]
+[ext_resource type="AudioStream" uid="uid://badxhihrbatbd" path="res://Sounds/gun5.mp3" id="14_qx2rx"]
+[ext_resource type="AudioStream" uid="uid://bxnh23uh2mbvh" path="res://Sounds/gun6.mp3" id="15_nopsg"]
+[ext_resource type="AudioStream" uid="uid://die7oe0rr48yv" path="res://Sounds/gun7.mp3" id="16_escb8"]
+[ext_resource type="AudioStream" uid="uid://caxy6fmjuc60e" path="res://Sounds/gun8.mp3" id="17_dxdp1"]
+[ext_resource type="AudioStream" uid="uid://de28albn1tmcm" path="res://Sounds/freesound_community-080902_shotgun-39753.mp3" id="18_qx2rx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhwth"]
 atlas = ExtResource("7_eafx7")
@@ -375,5 +385,48 @@ libraries/ = SubResource("AnimationLibrary_5vawc")
 
 [node name="Invicibletimer" type="Timer" parent="." unique_id=1320710540]
 one_shot = true
+
+[node name="GunSounds" type="Node" parent="." unique_id=931289366]
+script = ExtResource("9_dji4n")
+
+[node name="Gun1" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=1392027754]
+stream = ExtResource("9_w62yd")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="Gun2" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=373397947]
+stream = ExtResource("12_fciq5")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="Gun3" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=930024008]
+stream = ExtResource("13_afjwv")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="Gun4" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=1022502199]
+stream = ExtResource("14_qx2rx")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="Gun5" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=1693364485]
+stream = ExtResource("15_nopsg")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="Gun6" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=368123763]
+stream = ExtResource("16_escb8")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="Gun7" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=1501168947]
+stream = ExtResource("17_dxdp1")
+volume_db = 9.72
+script = ExtResource("10_aed4x")
+
+[node name="shotgun" type="AudioStreamPlayer2D" parent="GunSounds" unique_id=1160129989]
+stream = ExtResource("18_qx2rx")
+volume_db = 6.804
+script = ExtResource("10_aed4x")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

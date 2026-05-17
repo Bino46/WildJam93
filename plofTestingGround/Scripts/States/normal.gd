@@ -10,6 +10,7 @@ extends PlayerState
 @onready var bullet_pool = $"../../../PoolPlayerBullet"
 @onready var animated_sprite = $"../../AnimatedSprite2D3"
 @onready var camera = $"../../Camera2D"
+@onready var sounds = $"../../GunSounds"
 
 func Enter() -> void:
 	animated_sprite.play("default")
@@ -72,6 +73,7 @@ func fire_bullet(target: Vector2, origin: Vector2) -> void:
 	b.global_position = player.global_position
 	b.launch(target, origin)
 	camera.add_shake(3.0)
+	sounds.gun_shot_sound()
 	
 func fire_shotgun(target_center: Vector2, origin: Vector2) -> void:
 	var pellets = 5
@@ -87,6 +89,7 @@ func fire_shotgun(target_center: Vector2, origin: Vector2) -> void:
 		var b = bullet_pool.get_instance()
 		b.global_position = origin
 		b.launch(specific_target, origin)
+		sounds.shotgun_sound()
 	player.shotgun_ammo -= 1
 	print(player.shotgun_ammo)
 	if player.shotgun_ammo <= 0:
