@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bugqo6n4efsnm" path="res://Enemies/Boss/States/boss_sniper_attack.gd" id="8_p0c6u"]
 
 [sub_resource type="Curve" id="Curve_p0c6u"]
-_data = [Vector2(1e-05, 0.09523809), 0.0, 0.0, 0, 0, Vector2(1, 0.5476191), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.26190484), 0.0, 0.0, 0, 0, Vector2(1, 0.75000006), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_es76l"]
@@ -45,6 +45,7 @@ width_curve = SubResource("Curve_p0c6u")
 default_color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="AimLine2D" unique_id=2124109925]
+modulate = Color(1.9057555, 1.9057555, 1.9057555, 1)
 position = Vector2(7, -87)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_es76l")

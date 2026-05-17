@@ -15,6 +15,8 @@ func _ready() -> void:
 	direction.x = randf_range(-1,1)
 	direction.y = randf_range(-1,1)
 
+	is_hit = false
+
 
 func _process(delta: float) -> void:
 
