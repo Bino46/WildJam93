@@ -335,7 +335,7 @@ script = ExtResource("9_6pb3s")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
 list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
 list_enemy_spots = [NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Truck"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2")]
-list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("11_ah7fh"), ExtResource("22_386tm"), ExtResource("23_2px6s"), ExtResource("24_7256s"), ExtResource("28_sc5ux"), ExtResource("29_ns5k3"), ExtResource("30_3odmg"), ExtResource("31_q3aq3"), ExtResource("32_3cxdw"), ExtResource("33_ss8ir"), ExtResource("24_526cm")])
+list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("24_526cm"), ExtResource("11_ah7fh"), ExtResource("22_386tm"), ExtResource("23_2px6s"), ExtResource("24_7256s"), ExtResource("28_sc5ux"), ExtResource("29_ns5k3"), ExtResource("30_3odmg"), ExtResource("31_q3aq3"), ExtResource("32_3cxdw"), ExtResource("33_ss8ir")])
 boss_spawner = NodePath("EnemySpawnerList/BossSpawn")
 time_between_enemy_spawns = 0.1
 
