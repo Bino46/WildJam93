@@ -28,12 +28,11 @@ func take_damage():
 	await get_tree().create_timer(0.1).timeout
 	enemy_sprite.modulate = color_normal
 	
-	if(current_health <= 0):
+	if(current_health <= 0 && !dropped):
 
-		if(!dropped):
-			final_pos = global_position
-			drop_shotgun()
-			dropped = true
+		final_pos = global_position
+		drop_shotgun()
+		dropped = true
 
 		var state = get_node("../StateMachine") as StateMachine
 		state.on_child_transitioned("Idle")

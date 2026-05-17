@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btwtd4vki5v7y"]
 
 [ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_6614m"]
-[ext_resource type="Script" uid="uid://ci1815bmff4ts" path="res://main_level.gd" id="1_pcp4w"]
+[ext_resource type="Script" path="res://main_level.gd" id="1_pcp4w"]
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_bhu08"]
 [ext_resource type="Texture2D" uid="uid://becethbi21evv" path="res://assets/far mountains and sky.png" id="3_08fmi"]
 [ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="3_eqmdw"]
@@ -27,14 +27,29 @@
 [ext_resource type="PackedScene" uid="uid://bjxa6vt1a8uld" path="res://Enemies/Boss/Star.tscn" id="18_52es0"]
 [ext_resource type="Resource" uid="uid://bm65reesyx77p" path="res://Enemies/Scripts/Waves/wave2.tres" id="22_386tm"]
 [ext_resource type="Resource" uid="uid://drmgwkjtogx3q" path="res://Enemies/Scripts/Waves/wave3.tres" id="23_2px6s"]
+[ext_resource type="Resource" uid="uid://bl8db3b622eby" path="res://Enemies/Scripts/Waves/Boss.tres" id="24_526cm"]
 [ext_resource type="Resource" uid="uid://lpbyj6f26lql" path="res://Enemies/Scripts/Waves/wave4.tres" id="24_7256s"]
+[ext_resource type="Script" uid="uid://bl02fh143crnp" path="res://Enemies/Boss/boss_spawn.gd" id="26_76f81"]
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="27_3brdo"]
 [ext_resource type="Texture2D" uid="uid://yrml83f6eh8n" path="res://assets/Main Menu Sign.png" id="27_5hfqd"]
-[ext_resource type="Script" uid="uid://npvp0mvqpdur" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
-[ext_resource type="Script" uid="uid://k0bbddtodhtl" path="res://life.gd" id="28_526cm"]
-[ext_resource type="Script" uid="uid://d4cjpn3082px1" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
+[ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="27_ihlsf"]
+[ext_resource type="Script" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
+[ext_resource type="Script" path="res://life.gd" id="28_526cm"]
+[ext_resource type="Script" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
 [ext_resource type="Texture2D" uid="uid://c2vb6y68ccjer" path="res://assets/UI health ball.png" id="29_76f81"]
 [ext_resource type="Texture2D" uid="uid://15g02ab4qemi" path="res://images/GunPowerUp.png" id="30_pcp4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76f81"]
+size = Vector2(290, 1103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihlsf"]
+size = Vector2(316, 1081)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7mxm"]
+size = Vector2(2873, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24cb4"]
+size = Vector2(2886, 249)
 
 [sub_resource type="Animation" id="Animation_ihlsf"]
 resource_name = "0 life"
@@ -216,6 +231,41 @@ position = Vector2(72, 342)
 [node name="LimiteGauche" parent="." unique_id=302279517 instance=ExtResource("3_eqmdw")]
 position = Vector2(2636, 334)
 
+[node name="Left" type="Area2D" parent="." unique_id=525763944]
+position = Vector2(-430, 2)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1855490924]
+position = Vector2(135, 541.5)
+shape = SubResource("RectangleShape2D_76f81")
+
+[node name="Right" type="Area2D" parent="." unique_id=743757717]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1470063375]
+position = Vector2(2285, 530.5)
+shape = SubResource("RectangleShape2D_ihlsf")
+
+[node name="Ground" type="Area2D" parent="." unique_id=753018930]
+position = Vector2(-430, 1075)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1919616837]
+position = Vector2(1426.5, 132)
+shape = SubResource("RectangleShape2D_p7mxm")
+
+[node name="Up" type="Area2D" parent="." unique_id=1755464906]
+position = Vector2(-425, -228)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up" unique_id=1610979316]
+position = Vector2(1433, 114.5)
+shape = SubResource("RectangleShape2D_24cb4")
+
 [node name="CollagePhbg" type="Sprite2D" parent="." unique_id=380766422]
 visible = false
 position = Vector2(502, 368)
@@ -233,95 +283,101 @@ script = ExtResource("6_oeaww")
 object_reference = ExtResource("7_aonjr")
 pool_name = "BulletPlayer"
 
-[node name="Pools" type="Node" parent="." unique_id=995624718]
+[node name="Pools" type="Node" parent="." unique_id=844858771]
 
-[node name="SimpleEnemyPool" type="Node2D" parent="Pools" unique_id=1210171099]
+[node name="SimpleEnemyPool" type="Node2D" parent="Pools" unique_id=1333604387]
 position = Vector2(-680, 174)
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("8_xqiim")
 pool_name = "Enemy"
 object_count = 1
 
-[node name="FlameEnemyPool" type="Node2D" parent="Pools" unique_id=1604610784]
+[node name="FlameEnemyPool" type="Node2D" parent="Pools" unique_id=1484277434]
 position = Vector2(-680, 174)
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("9_htena")
 pool_name = "FlameEnemy"
 object_count = 1
 
-[node name="HitboxesPool" type="Node2D" parent="Pools" unique_id=841265927]
+[node name="HitboxesPool" type="Node2D" parent="Pools" unique_id=1944628374]
 position = Vector2(-680, 174)
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("10_xqiim")
 pool_name = "Hitbox"
 
-[node name="PoolEnemyBullet" type="Node" parent="Pools" unique_id=8643261]
+[node name="PoolEnemyBullet" type="Node" parent="Pools" unique_id=1104148412]
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("11_xqiim")
 pool_name = "BulletEnemy"
 object_count = 1
 
-[node name="PoolFireEnemyBullet" type="Node" parent="Pools" unique_id=133383391]
+[node name="PoolFireEnemyBullet" type="Node" parent="Pools" unique_id=1622176865]
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("16_6pb3s")
 pool_name = "BulletFireEnemy"
 object_count = 1
 
-[node name="StarPool" type="Node2D" parent="Pools" unique_id=2111838796]
+[node name="StarPool" type="Node2D" parent="Pools" unique_id=1566213543]
 position = Vector2(-680, 174)
 script = ExtResource("6_oeaww")
 object_reference = ExtResource("18_52es0")
 pool_name = "StarPool"
 object_count = 5
 
-[node name="EnemySpawnManager" type="Node" parent="." unique_id=1171803581 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=1598333036 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots", "boss_spawner")]
 script = ExtResource("9_6pb3s")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
 list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
-list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]
-list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("11_ah7fh"), ExtResource("22_386tm"), ExtResource("23_2px6s"), ExtResource("24_7256s")])
+list_enemy_spots = [NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Truck"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2")]
+list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("11_ah7fh"), ExtResource("22_386tm"), ExtResource("23_2px6s"), ExtResource("24_7256s"), ExtResource("24_526cm")])
+boss_spawner = NodePath("EnemySpawnerList/BossSpawn")
 time_between_enemy_spawns = 0.1
 
-[node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1161853848]
+[node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1721701171]
 
 [node name="EnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1957907348 instance=ExtResource("15_8m212")]
 position = Vector2(1051, 132)
 pool_name = "Enemy"
 
-[node name="EnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=647405387 instance=ExtResource("15_8m212")]
+[node name="EnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=762428082 instance=ExtResource("15_8m212")]
 position = Vector2(1051, 132)
 pool_name = "Enemy"
 
-[node name="FlameEnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1819484285 instance=ExtResource("15_8m212")]
+[node name="FlameEnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1981442045 instance=ExtResource("15_8m212")]
 position = Vector2(1051, 132)
 pool_name = "FlameEnemy"
 
-[node name="FlameEnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=964192542 instance=ExtResource("15_8m212")]
+[node name="FlameEnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=981126668 instance=ExtResource("15_8m212")]
 position = Vector2(1051, 132)
 pool_name = "FlameEnemy"
 
-[node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=732755392]
+[node name="BossSpawn" type="Node2D" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1189796659]
+position = Vector2(1048, 133)
+script = ExtResource("26_76f81")
+enemy_obj = ExtResource("27_ihlsf")
 
-[node name="Middle" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=133659715]
+[node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=1838784730]
 
-[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=200509555]
+[node name="Middle" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=1021265722]
+
+[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=800355899]
 position = Vector2(193, 305)
 
-[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1189211252]
+[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1737097687]
 position = Vector2(840, 808)
 
-[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1127844109]
+[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1356152376]
 position = Vector2(1291, 804)
 
-[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1331780381]
+[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=456132251]
 position = Vector2(1923, 323)
 
-[node name="Windows" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=1589824905]
+[node name="Windows" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=1049570834]
 
-[node name="w_Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1684805110]
+[node name="w_Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=837770053]
 position = Vector2(512, 191)
 
-[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot" unique_id=1085740333]
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot" unique_id=457131207]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -331,10 +387,10 @@ offset_right = 23.539991
 offset_bottom = 50.059998
 metadata/_edit_use_anchors_ = true
 
-[node name="w_Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1856161481]
+[node name="w_Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1351605585]
 position = Vector2(1724, 165)
 
-[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot2" unique_id=857794669]
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot2" unique_id=1774843202]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -344,10 +400,10 @@ offset_right = 22.294989
 offset_bottom = 51.305
 metadata/_edit_use_anchors_ = true
 
-[node name="Truck" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1483801091]
-position = Vector2(1053, 683)
+[node name="Truck" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=872533478]
+position = Vector2(1031, 812)
 
-[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Truck" unique_id=1220958069]
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Truck" unique_id=1109206902]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0

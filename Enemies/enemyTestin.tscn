@@ -17,7 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="16_87u22"]
 [ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="17_7ppoe"]
 [ext_resource type="PackedScene" uid="uid://bjxa6vt1a8uld" path="res://Enemies/Boss/Star.tscn" id="18_5wjuq"]
+[ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="18_pb6en"]
 [ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="19_mm62f"]
+[ext_resource type="Script" uid="uid://bl02fh143crnp" path="res://Enemies/Boss/boss_spawn.gd" id="19_pckx2"]
+[ext_resource type="Resource" uid="uid://bl8db3b622eby" path="res://Enemies/Scripts/Waves/Boss.tres" id="19_yj7eq"]
 [ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="25_jnn6l"]
 [ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="26_qub7n"]
 
@@ -119,11 +122,13 @@ object_reference = ExtResource("18_5wjuq")
 pool_name = "StarPool"
 object_count = 5
 
-[node name="EnemySpawnManager" type="Node" parent="." unique_id=1171803581 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=1171803581 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots", "boss_spawner")]
 script = ExtResource("19_mm62f")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
 list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
 list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]
+list_wave_data = Array[ExtResource("18_pb6en")]([ExtResource("19_yj7eq")])
+boss_spawner = NodePath("EnemySpawnerList/BossSpawn")
 time_between_enemy_spawns = 0.1
 
 [node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1161853848]
@@ -143,6 +148,11 @@ pool_name = "FlameEnemy"
 [node name="FlameEnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=964192542 instance=ExtResource("25_jnn6l")]
 position = Vector2(1051, 132)
 pool_name = "FlameEnemy"
+
+[node name="BossSpawn" type="Node2D" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1981103869]
+position = Vector2(1048, 133)
+script = ExtResource("19_pckx2")
+enemy_obj = ExtResource("26_qub7n")
 
 [node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=732755392]
 
@@ -243,6 +253,3 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Up" unique_id=849369191]
 position = Vector2(1433, 114.5)
 shape = SubResource("RectangleShape2D_yj7eq")
-
-[node name="Boss" parent="." unique_id=173163556 instance=ExtResource("26_qub7n")]
-position = Vector2(1025, 759)
