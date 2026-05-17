@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PoolManager="*uid://beme3l34hkfb5"
 Global="*uid://cag5fbwgdgtwn"
+MusicController="*uid://duggef1ayth6"
 
 [display]
 

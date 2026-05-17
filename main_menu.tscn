@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="3_glbon"]
 [ext_resource type="Script" uid="uid://dd2nwihx5fly6" path="res://plofTestingGround/Scripts/volumeslider.gd" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://bdkvoegbos1lt" path="res://assets/Credits Sign.png" id="5_glbon"]
+[ext_resource type="Texture2D" uid="uid://bvbo6p8rcndlh" path="res://images/Jam_CharacterSprites.png" id="6_nlkkf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
 bg_color = Color(0.24705882, 0.18431373, 0, 0)
@@ -12,6 +13,81 @@ bg_color = Color(0.24705882, 0.18431373, 0, 0)
 [sub_resource type="Theme" id="Theme_qe12f"]
 Button/constants/outline_size = 4
 Button/styles/normal = SubResource("StyleBoxFlat_nlkkf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(0, 814, 265, 407)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(265, 814, 265, 407)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(530, 814, 265, 407)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(795, 814, 265, 407)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k4wn"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(1060, 814, 265, 407)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5v2v"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(1325, 814, 265, 407)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotk1"]
+atlas = ExtResource("6_nlkkf")
+region = Rect2(1590, 814, 265, 407)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w44g7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy7ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o4t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k4wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5v2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy7ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o4t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k4wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5v2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotk1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="MainMenu" type="Control" unique_id=114706267]
 layout_mode = 3
@@ -119,6 +195,38 @@ script = ExtResource("4_jix8l")
 position = Vector2(506, 807)
 scale = Vector2(0.675, 0.675)
 texture = ExtResource("5_glbon")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1236347625]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2056594473]
+position = Vector2(-78, 892)
+sprite_frames = SubResource("SpriteFrames_w44g7")
+frame = 12
+frame_progress = 1.0
+
+[node name="Controls" type="ColorRect" parent="." unique_id=979364273]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 417.0
+offset_top = -249.0
+offset_right = 959.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7372549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls" unique_id=14623205]
+layout_mode = 0
+offset_right = 544.0
+offset_bottom = 520.0
+
+[node name="Label" type="Label" parent="Controls/VBoxContainer" unique_id=1503832160]
+layout_mode = 2
+text = "KEYBOARD :"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [1]]

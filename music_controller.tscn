@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://duggef1ayth6"]
+
+[ext_resource type="Script" uid="uid://c4kvuiasxhqpm" path="res://music_controller.gd" id="1_7bf0p"]
+[ext_resource type="AudioStream" uid="uid://bsx5upy44nfl4" path="res://Sounds/azaFMP2_town3_CityOfDust.wav" id="1_o7k1f"]
+[ext_resource type="AudioStream" uid="uid://dgt5ifgqq7wjb" path="res://Sounds/azaFMP2_battle3_RayGunRevolver.wav" id="3_g5ev8"]
+[ext_resource type="AudioStream" uid="uid://cj0s78dm86d7q" path="res://Sounds/azaFMP2_scene9_ContainmentBreach.wav" id="4_yxsf3"]
+
+[node name="MusicController" type="Node" unique_id=1487639629]
+script = ExtResource("1_7bf0p")
+
+[node name="Menu" type="AudioStreamPlayer" parent="." unique_id=236798620]
+stream = ExtResource("1_o7k1f")
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="." unique_id=891600765]
+stream = ExtResource("3_g5ev8")
+
+[node name="Boss" type="AudioStreamPlayer" parent="." unique_id=548640393]
+stream = ExtResource("4_yxsf3")
