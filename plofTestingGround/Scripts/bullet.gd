@@ -21,10 +21,13 @@ var third_point : Vector2
 var sprite_animation : Sprite2D
 var anim_id :int = 0
 
+var aim_sprite : Sprite2D
+
 const INITIAL_SCALE = Vector2.ONE
 
 func _ready() -> void:
 	sprite_animation = get_node("BulletSprite") as Sprite2D
+	aim_sprite = get_node("Aim_Sprite2D") as Sprite2D
 
 
 func _process(delta: float) -> void:
@@ -41,6 +44,8 @@ func launch(new_target_pos: Vector2, new_start_pos: Vector2, new_third_point : V
 	start_pos = new_start_pos
 	target_pos = new_target_pos
 	third_point = new_third_point
+
+	aim_sprite.global_position = target_pos
 
 	go = true
 
@@ -87,4 +92,5 @@ func finish_process():
 func _on_timer_timeout() -> void:
 
 	anim_id += 1
-	sprite_animation.frame = anim_id % 3
+	sprite_animation.frame = anim_id % (sprite_animation.hframes - 1)
+	aim_sprite.frame = anim_id % (sprite_animation.hframes - 1)

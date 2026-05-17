@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_vs6h4")
-simple_enemy_count = 3
-flame_enemy_count = 2
-simple_enemy_spot = Array[int]([0, 1, 2])
-flame_enemy_spot = Array[int]([5, 6])
+simple_enemy_count = 1
+simple_enemy_spot = Array[int]([1])
 metadata/_custom_type_script = "uid://chimmqf1w80im"

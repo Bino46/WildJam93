@@ -3,16 +3,28 @@ extends Node2D
 
 @export var _health : float = 3
 var current_health
+
 @export var proba_drop : int
+
+@export var color_flash : Color
+@export var color_normal : Color
+var enemy_sprite : AnimatedSprite2D
+
 var test_val: int
 var dropped:bool
 var shotgun_bonus = preload("res://plofTestingGround/scenes/power_up_shotgun.tscn")
 
 func _ready() -> void:
 	current_health = _health
+	enemy_sprite = get_parent().get_node("AnimatedSprite2D")
 
 func take_damage():
+
 	current_health -= 1
+
+	enemy_sprite.modulate = color_flash
+	await get_tree().create_timer(0.1).timeout
+	enemy_sprite.modulate = color_normal
 	
 	if(current_health <= 0):
 
