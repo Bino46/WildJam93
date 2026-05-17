@@ -1,15 +1,23 @@
 extends Node
 
 @export var _health : float = 3
+@export var color_flash : Color
+@export var color_normal : Color
 var current_health
 var boss_script
+var boss_sprite : Sprite2D
 
 func _ready() -> void:
 	boss_script = get_parent() as boss
 	current_health = _health
+	boss_sprite = boss_script.get_node("Sprite2D")
 
 func take_damage():
 	current_health -= 1
+
+	boss_sprite.modulate = color_flash
+	await get_tree().create_timer(0.1).timeout
+	boss_sprite.modulate = color_normal
 	
 	if(current_health <= 0):
 		var state = get_node("../StateMachine") as StateMachine

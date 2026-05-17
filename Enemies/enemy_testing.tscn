@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bo2375ig5c57t"]
+[gd_scene format=3 uid="uid://eli5g7l8wlci"]
 
 [ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_dfyo3"]
 [ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_3i8sr"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da15enc7b3c4d" path="res://plofTestingGround/Scripts/bullet.gd" id="1_v67i8"]
 [ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_jwtrj"]
+[ext_resource type="Texture2D" uid="uid://c8t2j1f4rs2eh" path="res://images/SpriteBullet.png" id="3_jwtrj"]
 
 [node name="PlayerBullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_v67i8")
@@ -9,4 +10,13 @@ travel_duration = 0.3
 layer = 2
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_jwtrj")]
+scale = Vector2(1, 1)
+texture = ExtResource("3_jwtrj")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 128)
 script = null
+
+[node name="Timer" type="Timer" parent="BulletSprite" unique_id=1589067659]
+wait_time = 0.1
+autostart = true

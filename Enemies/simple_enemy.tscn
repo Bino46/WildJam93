@@ -58,6 +58,7 @@ disable_mode = 2
 collision_mask = 2
 input_pickable = false
 script = ExtResource("1_d2rvv")
+proba_drop = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1364584957]
 shape = SubResource("RectangleShape2D_6fv5p")
