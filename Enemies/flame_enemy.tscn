@@ -124,7 +124,7 @@ mesh = SubResource("SphereMesh_obgfw")
 [node name="Area2D" type="Area2D" parent="." unique_id=320888318]
 collision_mask = 2
 script = ExtResource("2_iwqj8")
-proba_drop = 10
+proba_drop = 2
 color_flash = Color(2.454227, 2.454227, 2.454227, 1)
 color_normal = Color(1, 1, 1, 1)
 

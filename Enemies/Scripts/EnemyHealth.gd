@@ -30,9 +30,9 @@ func take_damage():
 	
 	if(current_health <= 0 && !dropped):
 
+		dropped = true
 		final_pos = global_position
 		drop_shotgun()
-		dropped = true
 
 		var state = get_node("../StateMachine") as StateMachine
 		state.on_child_transitioned("Idle")

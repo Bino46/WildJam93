@@ -43,9 +43,12 @@ layer = 3
 
 [node name="BulletSprite" parent="." unique_id=143869020 instance=ExtResource("2_54gl4")]
 visible = false
+top_level = true
+z_index = 5
 script = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=95201263]
+z_index = 3
 texture_filter = 1
 position = Vector2(0, -21)
 scale = Vector2(1.5, 1.5)
