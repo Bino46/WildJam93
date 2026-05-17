@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cuutgvmne4noo" path="res://Tools/Hitboxes/hitbox.gd" id="1_4t3l3"]
 [ext_resource type="Texture2D" uid="uid://b22ojaf5noihg" path="res://images/Sprite_Explosiongrey.png" id="2_1grxk"]
+[ext_resource type="Texture2D" uid="uid://crjdi5n5expct" path="res://images/SpritePaf.png" id="3_esesk"]
 [ext_resource type="Texture2D" uid="uid://bublf84i8mwq0" path="res://images/Sprite_Fire.png" id="3_mgian"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gujsm"]
@@ -32,6 +33,14 @@ region_rect = Rect2(-2.495, 44.735, 512, 128)
 wait_time = 0.05
 autostart = true
 
+[node name="PlayerSprite2D" type="Sprite2D" parent="Bullet_Area2D" unique_id=1936799734]
+visible = false
+modulate = Color(2.2666645, 2.2666645, 2.2666645, 1)
+texture = ExtResource("3_esesk")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 64)
+
 [node name="Flame_Area2D" type="Area2D" parent="." unique_id=1186854902]
 scale = Vector2(4, 4)
 disable_mode = 2
@@ -55,9 +64,5 @@ hframes = 5
 frame = 4
 region_enabled = true
 region_rect = Rect2(-1.465, 43.67, 640, 128)
-
-[node name="Timer" type="Timer" parent="Flame_Area2D/Sprite2D" unique_id=106977397]
-wait_time = 0.2
-autostart = true
 
 [connection signal="timeout" from="Bullet_Area2D/Sprite2D/Timer" to="." method="_on_timer_timeout"]

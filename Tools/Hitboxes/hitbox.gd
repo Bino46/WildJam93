@@ -41,10 +41,20 @@ func change_hitbox_state(hitbox_size : hit_size, activate : bool, layer : int):
 	
 
 func set_layer(layer : int, area):
+	
 	area.set_collision_layer_value(layer, true)
 
 	# var sprite = area.get_node("MeshInstance2D") as MeshInstance2D
 	sprite_animation = area.get_node("Sprite2D") as Sprite2D
+
+	if(area == small_hitbox):
+
+		if(layer == 2):
+			sprite_animation = area.get_node("PlayerSprite2D") as Sprite2D
+
+		elif(layer == 3):
+			sprite_animation = area.get_node("Sprite2D") as Sprite2D
+
 	sprite_animation.visible = true
 
 func reset_layer():

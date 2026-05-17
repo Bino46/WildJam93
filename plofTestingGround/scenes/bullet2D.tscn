@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cyal5nem4jv4s" path="res://images/Sprite_Cible.png" id="4_1yjvc"]
 
 [node name="PlayerBullet" type="Node2D" unique_id=267890759]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 script = ExtResource("1_v67i8")
 travel_duration = 0.3
 layer = 2
@@ -23,6 +24,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Aim_Sprite2D" type="Sprite2D" parent="." unique_id=2018699450]
+visible = false
 texture = ExtResource("4_1yjvc")
 hframes = 2
 region_enabled = true
