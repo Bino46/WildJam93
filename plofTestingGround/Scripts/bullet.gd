@@ -71,7 +71,7 @@ func bezier_move():
 	var b = lerp_time * lerp_time
 
 	var new_pos = (a*a)*start_pos + 2*a*lerp_time*third_point + b * target_pos
-
+	self.look_at(new_pos)
 	global_position = new_pos
 
 #When reached destination, equivalent to tween.finished

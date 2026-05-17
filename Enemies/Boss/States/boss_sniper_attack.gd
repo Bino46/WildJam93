@@ -34,11 +34,14 @@ func Enter() -> void:
 	enemy_script.is_protected = true
 	aim_line.visible = true
 
+	current_charge = 0
+
 	show_stars()
 	
 func Exit() -> void:
 	aim_line.visible = false
 	enemy_script.is_protected = false
+	enemy_script.pause = false
 	
 @warning_ignore("unused_parameter")
 func Update(delta: float) -> void:

@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://cs0nwlm2db7be"]
+
+[ext_resource type="PackedScene" uid="uid://bbgcbie1pkpex" path="res://plofTestingGround/scenes/player.tscn" id="1_2xw82"]
+[ext_resource type="Script" uid="uid://cd3idhjmk8mdx" path="res://plofTestingGround/Scripts/playerCamera.gd" id="2_pw4c8"]
+[ext_resource type="Texture2D" uid="uid://becethbi21evv" path="res://assets/far mountains and sky.png" id="3_lvng0"]
+[ext_resource type="Texture2D" uid="uid://c4jemngo17vpl" path="res://assets/mountains.png" id="4_eugiw"]
+[ext_resource type="Texture2D" uid="uid://whl84jfvpvol" path="res://assets/path and houses.png" id="5_v01by"]
+[ext_resource type="Texture2D" uid="uid://d3g2abji1o54g" path="res://assets/alien spaceship[.png" id="6_ak2x1"]
+[ext_resource type="PackedScene" uid="uid://mngvhywuiir0" path="res://plofTestingGround/scenes/mursLimites.tscn" id="7_uixvl"]
+[ext_resource type="Texture2D" uid="uid://cqmgayxrvjve8" path="res://assets/CollagePHBG.png" id="8_5quah"]
+[ext_resource type="PackedScene" uid="uid://c3rg13hv6u62y" path="res://plofTestingGround/scenes/cross_hair.tscn" id="9_t52tc"]
+[ext_resource type="PackedScene" uid="uid://dim2nj1g4brrs" path="res://plofTestingGround/scenes/power_up_shotgun.tscn" id="10_0xk0a"]
+[ext_resource type="Script" uid="uid://dyvo8viosd0o1" path="res://Tools/Pool.gd" id="11_6s8x0"]
+[ext_resource type="PackedScene" uid="uid://02ukr06x648y" path="res://plofTestingGround/scenes/bullet2D.tscn" id="12_5n626"]
+[ext_resource type="PackedScene" uid="uid://dgwcsbdw530ob" path="res://Enemies/simple_enemy.tscn" id="13_ktrpb"]
+[ext_resource type="PackedScene" uid="uid://bowi28de02wik" path="res://Enemies/flame_enemy.tscn" id="14_aoc50"]
+[ext_resource type="PackedScene" uid="uid://cluahbhkqg6ka" path="res://Tools/Hitboxes/Hitbox.tscn" id="15_m4jd0"]
+[ext_resource type="PackedScene" uid="uid://bu0yrytgx67r3" path="res://Enemies/enemy_bullet2D.tscn" id="16_87u22"]
+[ext_resource type="PackedScene" uid="uid://dwor54hnkgxu1" path="res://Enemies/enemy_fire_bullet2D.tscn" id="17_7ppoe"]
+[ext_resource type="PackedScene" uid="uid://bjxa6vt1a8uld" path="res://Enemies/Boss/Star.tscn" id="18_5wjuq"]
+[ext_resource type="Script" uid="uid://cvhh40aa6r0xk" path="res://Enemies/Scripts/enemy_spawn_manager.gd" id="19_mm62f"]
+[ext_resource type="PackedScene" uid="uid://2shf0ldknpwd" path="res://Enemies/EnemySpawn.tscn" id="25_jnn6l"]
+[ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="26_qub7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pckx2"]
+size = Vector2(290, 1103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bxuq"]
+size = Vector2(316, 1081)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb6en"]
+size = Vector2(2873, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj7eq"]
+size = Vector2(2886, 249)
+
+[node name="MainLevel" type="Node2D" unique_id=625763660]
+
+[node name="Player" parent="." unique_id=1275736653 node_paths=PackedStringArray("cross_hair", "level") instance=ExtResource("1_2xw82")]
+z_index = 2
+position = Vector2(1031, 943)
+cross_hair = NodePath("../CrossHair")
+level = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=52321186 node_paths=PackedStringArray("background")]
+position = Vector2(0, -407)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+script = ExtResource("2_pw4c8")
+background = NodePath("../../Parallax/PathAndHouses")
+
+[node name="Parallax" type="Node2D" parent="." unique_id=1531978164]
+position = Vector2(1073, 536)
+
+[node name="FarMountainsAndSky" type="Sprite2D" parent="Parallax" unique_id=1569880156]
+texture = ExtResource("3_lvng0")
+
+[node name="Mountains" type="Sprite2D" parent="Parallax" unique_id=805840943]
+texture = ExtResource("4_eugiw")
+
+[node name="PathAndHouses" type="Sprite2D" parent="Parallax" unique_id=1149469122]
+texture = ExtResource("5_v01by")
+
+[node name="AlienSpaceship[" type="Sprite2D" parent="Parallax" unique_id=772410280]
+texture = ExtResource("6_ak2x1")
+
+[node name="CollagePhbg" type="Sprite2D" parent="." unique_id=380766422]
+visible = false
+position = Vector2(502, 368)
+scale = Vector2(4, 4)
+texture = ExtResource("8_5quah")
+
+[node name="CrossHair" parent="." unique_id=1882000265 instance=ExtResource("9_t52tc")]
+position = Vector2(1026, 698)
+
+[node name="PowerUpShotgun" parent="." unique_id=1500165822 instance=ExtResource("10_0xk0a")]
+position = Vector2(213, 223)
+
+[node name="PoolPlayerBullet" type="Node" parent="." unique_id=1550696729]
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("12_5n626")
+pool_name = "BulletPlayer"
+
+[node name="Pools" type="Node" parent="." unique_id=995624718]
+
+[node name="SimpleEnemyPool" type="Node2D" parent="Pools" unique_id=1210171099]
+position = Vector2(-680, 174)
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("13_ktrpb")
+pool_name = "Enemy"
+object_count = 1
+
+[node name="FlameEnemyPool" type="Node2D" parent="Pools" unique_id=1604610784]
+position = Vector2(-680, 174)
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("14_aoc50")
+pool_name = "FlameEnemy"
+object_count = 1
+
+[node name="HitboxesPool" type="Node2D" parent="Pools" unique_id=841265927]
+position = Vector2(-680, 174)
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("15_m4jd0")
+pool_name = "Hitbox"
+
+[node name="PoolEnemyBullet" type="Node" parent="Pools" unique_id=8643261]
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("16_87u22")
+pool_name = "BulletEnemy"
+object_count = 1
+
+[node name="PoolFireEnemyBullet" type="Node" parent="Pools" unique_id=133383391]
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("17_7ppoe")
+pool_name = "BulletFireEnemy"
+object_count = 1
+
+[node name="StarPool" type="Node2D" parent="Pools" unique_id=2111838796]
+position = Vector2(-680, 174)
+script = ExtResource("11_6s8x0")
+object_reference = ExtResource("18_5wjuq")
+pool_name = "StarPool"
+object_count = 5
+
+[node name="EnemySpawnManager" type="Node" parent="." unique_id=1171803581 node_paths=PackedStringArray("list_simple_spawners", "list_flame_spawners", "list_enemy_spots")]
+script = ExtResource("19_mm62f")
+list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
+list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
+list_enemy_spots = [NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2"), NodePath("EnemySpots/Truck")]
+time_between_enemy_spawns = 0.1
+
+[node name="EnemySpawnerList" type="Node" parent="EnemySpawnManager" unique_id=1161853848]
+
+[node name="EnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1957907348 instance=ExtResource("25_jnn6l")]
+position = Vector2(1051, 132)
+pool_name = "Enemy"
+
+[node name="EnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=647405387 instance=ExtResource("25_jnn6l")]
+position = Vector2(1051, 132)
+pool_name = "Enemy"
+
+[node name="FlameEnemySpawn" parent="EnemySpawnManager/EnemySpawnerList" unique_id=1819484285 instance=ExtResource("25_jnn6l")]
+position = Vector2(1051, 132)
+pool_name = "FlameEnemy"
+
+[node name="FlameEnemySpawn2" parent="EnemySpawnManager/EnemySpawnerList" unique_id=964192542 instance=ExtResource("25_jnn6l")]
+position = Vector2(1051, 132)
+pool_name = "FlameEnemy"
+
+[node name="EnemySpots" type="Node" parent="EnemySpawnManager" unique_id=732755392]
+
+[node name="Middle" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=133659715]
+
+[node name="Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=200509555]
+position = Vector2(193, 305)
+
+[node name="Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1189211252]
+position = Vector2(840, 808)
+
+[node name="Spot3" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1127844109]
+position = Vector2(1291, 804)
+
+[node name="Spot4" type="Node2D" parent="EnemySpawnManager/EnemySpots/Middle" unique_id=1331780381]
+position = Vector2(1923, 323)
+
+[node name="Windows" type="Node" parent="EnemySpawnManager/EnemySpots" unique_id=1589824905]
+
+[node name="w_Spot" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1684805110]
+position = Vector2(512, 191)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot" unique_id=1085740333]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -22.00001
+offset_top = -52.0
+offset_right = 23.539991
+offset_bottom = 50.059998
+metadata/_edit_use_anchors_ = true
+
+[node name="w_Spot2" type="Node2D" parent="EnemySpawnManager/EnemySpots/Windows" unique_id=1856161481]
+position = Vector2(1724, 165)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Windows/w_Spot2" unique_id=857794669]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.00001
+offset_top = -50.0
+offset_right = 22.294989
+offset_bottom = 51.305
+metadata/_edit_use_anchors_ = true
+
+[node name="Truck" type="Node2D" parent="EnemySpawnManager/EnemySpots" unique_id=1483801091]
+position = Vector2(1053, 683)
+
+[node name="Control" type="Control" parent="EnemySpawnManager/EnemySpots/Truck" unique_id=1220958069]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -58.000008
+offset_top = -55.000008
+offset_right = 63.409996
+offset_bottom = 31.079994
+metadata/_edit_use_anchors_ = true
+
+[node name="Boss" parent="." unique_id=173163556 instance=ExtResource("26_qub7n")]
+position = Vector2(1056, 629)
+
+[node name="Collisions" type="Node" parent="." unique_id=1879726711]
+
+[node name="LimiteDroite" parent="Collisions" unique_id=69021630 instance=ExtResource("7_uixvl")]
+position = Vector2(72, 342)
+
+[node name="LimiteGauche" parent="Collisions" unique_id=302279517 instance=ExtResource("7_uixvl")]
+position = Vector2(2636, 334)
+
+[node name="Left" type="Area2D" parent="Collisions" unique_id=100056999]
+position = Vector2(-430, 2)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Left" unique_id=567980778]
+position = Vector2(135, 541.5)
+shape = SubResource("RectangleShape2D_pckx2")
+
+[node name="Right" type="Area2D" parent="Collisions" unique_id=161797843]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Right" unique_id=1219357672]
+position = Vector2(2285, 530.5)
+shape = SubResource("RectangleShape2D_3bxuq")
+
+[node name="Ground" type="Area2D" parent="Collisions" unique_id=1530762674]
+position = Vector2(-430, 1075)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Ground" unique_id=526362749]
+position = Vector2(1426.5, 132)
+shape = SubResource("RectangleShape2D_pb6en")
+
+[node name="Up" type="Area2D" parent="Collisions" unique_id=1271859819]
+position = Vector2(-425, -228)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Up" unique_id=849369191]
+position = Vector2(1433, 114.5)
+shape = SubResource("RectangleShape2D_yj7eq")

@@ -19,6 +19,7 @@ func Enter() -> void:
 	throw_semi_circle()
 	
 func Exit() -> void:
+	enemy_script.pause = false
 	pass
 	
 @warning_ignore("unused_parameter")

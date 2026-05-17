@@ -34,10 +34,11 @@ func attack():
 
 	match id:
 		0:
-			# state_machine.on_child_transitioned("FireAttack")
 			state_machine.on_child_transitioned("SniperAttack")
 		1:
 			state_machine.on_child_transitioned("BulletAttack")
+		2:
+			state_machine.on_child_transitioned("FireAttack")
 
 	reset()
 
