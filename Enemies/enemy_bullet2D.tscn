@@ -37,7 +37,7 @@ animations = [{
 
 [node name="EnemyBullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_38rcc")
-travel_duration = 1.0
+travel_duration = 0.75
 hitbox_duration = 0.2
 layer = 3
 

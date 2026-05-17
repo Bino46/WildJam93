@@ -32,8 +32,6 @@ func _process(delta: float) -> void:
 		
 		if(timer <= 0 && current_wave_id < list_wave_data.size()):
 			launch_wave()
-		
-		print("wave ", current_wave_id, " " , list_wave_data.size())
 
 		if(current_wave_id > list_wave_data.size()):
 			current_wave_id = 0
@@ -92,3 +90,6 @@ func get_spot(spawner, id):
 			spawner[1].spawn_enemy(list_enemy_spots[id].position)
 		
 	
+func get_wave() -> String:
+	var val = str("Wave ", current_wave_id, " / ",list_wave_data.size()) 
+	return val

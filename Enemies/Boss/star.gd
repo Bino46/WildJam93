@@ -1,4 +1,5 @@
 extends PoolObject
+class_name star
 
 @export var speed : float
 var direction : Vector2 = Vector2.ONE
@@ -17,6 +18,8 @@ func _ready() -> void:
 
 	is_hit = false
 
+func init_star():
+	is_hit = false
 
 func _process(delta: float) -> void:
 
