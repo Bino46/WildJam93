@@ -4,6 +4,7 @@ extends Control
 var main_menu = "res://main_menu.tscn"
 
 func appear():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	self.visible = true
 	get_tree().paused = true
 	get_score()
