@@ -85,8 +85,10 @@ func sniper_shoot():
 func show_stars():
 	star_pool = pool_manager._instance.pool_list["StarPool"]
 	for i in range(star_count):
-		var star = star_pool.get_instance()
-		star.global_position = enemy_script.shoot_spot.global_position
+		var star_obj = star_pool.get_instance()
+		star_obj.global_position = enemy_script.shoot_spot.global_position
+		var obj = star_obj as star
+		obj.init_star()
 
 func yeet():
 	enemy_script.state_machine.on_child_transitioned("Walk")
