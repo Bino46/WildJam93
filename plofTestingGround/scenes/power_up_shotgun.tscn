@@ -1,16 +1,47 @@
 [gd_scene format=3 uid="uid://dim2nj1g4brrs"]
 
 [ext_resource type="Script" uid="uid://pjfrgyb5hp3k" path="res://plofTestingGround/Scripts/power_up_shotgun.gd" id="1_22ta1"]
+[ext_resource type="Texture2D" uid="uid://15g02ab4qemi" path="res://images/GunPowerUp.png" id="2_hcdcj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kkkbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22ta1"]
 size = Vector2(93, 84)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_npaxo"]
+atlas = ExtResource("2_hcdcj")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpvdp"]
+atlas = ExtResource("2_hcdcj")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3k8c"]
+atlas = ExtResource("2_hcdcj")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpnka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npaxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpvdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3k8c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="PowerUpShotgun" type="Node2D" unique_id=1500165822]
 script = ExtResource("1_22ta1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1551971594]
+visible = false
 modulate = Color(0.15686275, 1, 1, 1)
 scale = Vector2(92.5, 84)
 texture = SubResource("PlaceholderTexture2D_kkkbe")
@@ -22,5 +53,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=676906837]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_22ta1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1673841914]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kpnka")
+frame_progress = 0.9549767
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

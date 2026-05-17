@@ -40,6 +40,7 @@ size = Vector2(54, 54)
 [node name="SimpleEnemy" type="Node2D" unique_id=1703660368]
 script = ExtResource("1_57nd7")
 color_at_state = Array[Color]([Color(0, 0.5960624, 0.71653026, 1), Color(1, 0.75, 0, 1), Color(1, 0, 0, 1), Color(0.87934357, 0.8793436, 0.8793435, 1)])
+score_added = 250.0
 
 [node name="AlienSprite" type="AnimatedSprite2D" parent="." unique_id=1747950357]
 texture_filter = 1

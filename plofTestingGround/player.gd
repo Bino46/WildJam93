@@ -15,7 +15,7 @@ enum WeaponType {PISTOL, SHOTGUN}
 @export var current_weapon = WeaponType.PISTOL
 
 #Shotgun
-var shotgun_ammo : int = 20
+var shotgun_ammo : int = 0
 @export var max_shotgun_ammo : int = 20
 
 @onready var hurtbox = $Hurtbox/CollisionShape2D

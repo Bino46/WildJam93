@@ -105,6 +105,7 @@ animations = [{
 [node name="FlameEnemy" type="Node2D" unique_id=1703660368]
 script = ExtResource("1_obgfw")
 color_at_state = Array[Color]([Color(0, 0.5960624, 0.71653026, 1), Color(1, 0.75, 0, 1), Color(1, 0, 0, 1)])
+score_added = 500.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=296674096]
 scale = Vector2(54.5, 54.5)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WildJam93"
-run/main_scene="uid://btwtd4vki5v7y"
+run/main_scene="uid://bcc1kxbpsxb8v"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -11,6 +11,7 @@ func Enter() -> void:
 	await animated_sprite.animation_finished
 	if player.life <= 0:
 		print("Game Over")
+		Global.reset_score()
 		get_tree().reload_current_scene()
 	else:
 		player.start_invicibility(2.0)
