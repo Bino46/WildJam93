@@ -27,7 +27,7 @@
 [ext_resource type="Resource" uid="uid://drmgwkjtogx3q" path="res://Enemies/Scripts/Waves/wave3.tres" id="23_2px6s"]
 [ext_resource type="Resource" uid="uid://bl8db3b622eby" path="res://Enemies/Scripts/Waves/Boss.tres" id="24_526cm"]
 [ext_resource type="Resource" uid="uid://lpbyj6f26lql" path="res://Enemies/Scripts/Waves/wave4.tres" id="24_7256s"]
-[ext_resource type="Script" path="res://Enemies/Boss/boss_spawn.gd" id="26_76f81"]
+[ext_resource type="Script" uid="uid://bl02fh143crnp" path="res://Enemies/Boss/boss_spawn.gd" id="26_76f81"]
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="27_3brdo"]
 [ext_resource type="Texture2D" uid="uid://yrml83f6eh8n" path="res://assets/Main Menu Sign.png" id="27_5hfqd"]
 [ext_resource type="PackedScene" uid="uid://dgc0wj580a57m" path="res://Enemies/Boss/boss.tscn" id="27_ihlsf"]
@@ -42,6 +42,7 @@
 [ext_resource type="Resource" uid="uid://ct5strgenmsbs" path="res://Enemies/Scripts/Waves/wave8.tres" id="31_q3aq3"]
 [ext_resource type="Resource" uid="uid://cqwlv2nll1eeo" path="res://Enemies/Scripts/Waves/wave9.tres" id="32_3cxdw"]
 [ext_resource type="Resource" uid="uid://bujbf3v4o646q" path="res://Enemies/Scripts/Waves/wave10.tres" id="33_ss8ir"]
+[ext_resource type="Script" uid="uid://y3xaj30hfgy3" path="res://count_down.gd" id="42_sc5ux"]
 [ext_resource type="Script" uid="uid://uekrk8leouyh" path="res://ecran_fin.gd" id="43_p8ta1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76f81"]
@@ -473,15 +474,16 @@ text = "0"
 script = ExtResource("28_s8c5p")
 
 [node name="CountDown" type="Label" parent="UI" unique_id=1073625865]
-offset_left = 125.0
-offset_top = 875.0
-offset_right = 223.99998
-offset_bottom = 941.0
+offset_left = 72.0
+offset_top = 886.0
+offset_right = 286.0
+offset_bottom = 952.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("27_3brdo")
-theme_override_font_sizes/font_size = 53
-text = "60"
+theme_override_font_sizes/font_size = 38
+text = "WAVE : 10/11"
+script = ExtResource("42_sc5ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI" unique_id=381385407]
 texture_filter = 1

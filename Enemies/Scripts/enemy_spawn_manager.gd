@@ -1,5 +1,7 @@
 extends Node
 
+signal wave_changed
+
 var simple_pool_reference : Pool
 var flame_pool_reference : Pool
 
@@ -38,6 +40,7 @@ func _process(delta: float) -> void:
 
 
 func launch_wave():
+	wave_changed.emit()
 
 	timer = time_between_waves
 	
