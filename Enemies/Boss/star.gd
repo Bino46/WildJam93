@@ -6,6 +6,7 @@ var raycast : RayCast2D
 
 var sprite_animation : Sprite2D
 var anim_id :int = 0
+var is_hit : bool = false
 
 func _ready() -> void:
 	sprite_animation = get_node("Sprite2D") as Sprite2D
@@ -29,7 +30,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		new_direction = raycast.get_collision_normal()
 		direction = direction.bounce(new_direction)
 	
-	if(area.get_collision_layer_value(2)):
+	if(area.get_collision_layer_value(2) && !is_hit):
+		is_hit = true
 		change_state(false)
 
 

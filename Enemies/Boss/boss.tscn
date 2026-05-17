@@ -42,7 +42,7 @@ position = Vector2(7, -87)
 [node name="AimLine2D" type="Line2D" parent="." unique_id=725326790]
 points = PackedVector2Array(0, 0, 0, 0)
 width_curve = SubResource("Curve_p0c6u")
-default_color = Color(1, 0, 0, 0.45882353)
+default_color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="AimLine2D" unique_id=2124109925]
 position = Vector2(7, -87)
