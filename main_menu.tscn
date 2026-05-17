@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cvddbth0edi8j" path="res://assets/Background.png" id="2_jix8l"]
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="3_glbon"]
 [ext_resource type="Script" uid="uid://dd2nwihx5fly6" path="res://plofTestingGround/Scripts/volumeslider.gd" id="4_jix8l"]
-[ext_resource type="Texture2D" uid="uid://bdkvoegbos1lt" path="res://assets/Credits Sign.png" id="5_glbon"]
+[ext_resource type="Texture2D" uid="uid://buggc3ft1ddhv" path="res://assets/credits sign2.png" id="5_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://bvbo6p8rcndlh" path="res://images/Jam_CharacterSprites.png" id="6_nlkkf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
@@ -194,7 +194,7 @@ script = ExtResource("4_jix8l")
 [node name="CreditsSign" type="Sprite2D" parent="." unique_id=1491739233]
 position = Vector2(506, 807)
 scale = Vector2(0.675, 0.675)
-texture = ExtResource("5_glbon")
+texture = ExtResource("5_nlkkf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1236347625]
 

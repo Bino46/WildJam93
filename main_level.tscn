@@ -26,11 +26,117 @@
 [ext_resource type="Resource" uid="uid://bm65reesyx77p" path="res://Enemies/Scripts/Waves/wave2.tres" id="22_386tm"]
 [ext_resource type="Resource" uid="uid://drmgwkjtogx3q" path="res://Enemies/Scripts/Waves/wave3.tres" id="23_2px6s"]
 [ext_resource type="Resource" uid="uid://lpbyj6f26lql" path="res://Enemies/Scripts/Waves/wave4.tres" id="24_7256s"]
-[ext_resource type="Texture2D" uid="uid://bb8jplx634rfl" path="res://assets/UI Sign.png" id="26_2px6s"]
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="27_3brdo"]
+[ext_resource type="Texture2D" uid="uid://yrml83f6eh8n" path="res://assets/Main Menu Sign.png" id="27_5hfqd"]
 [ext_resource type="Script" uid="uid://npvp0mvqpdur" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
+[ext_resource type="Script" uid="uid://k0bbddtodhtl" path="res://life.gd" id="28_526cm"]
 [ext_resource type="Script" uid="uid://d4cjpn3082px1" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
+[ext_resource type="Texture2D" uid="uid://c2vb6y68ccjer" path="res://assets/UI health ball.png" id="29_76f81"]
 [ext_resource type="Texture2D" uid="uid://15g02ab4qemi" path="res://images/GunPowerUp.png" id="30_pcp4w"]
+
+[sub_resource type="Animation" id="Animation_ihlsf"]
+resource_name = "0 life"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p7mxm"]
+resource_name = "1 life"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_24cb4"]
+resource_name = "2 life"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0aqg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25cby"]
+_data = {
+&"0 life": SubResource("Animation_ihlsf"),
+&"1 life": SubResource("Animation_p7mxm"),
+&"2 life": SubResource("Animation_24cb4"),
+&"RESET": SubResource("Animation_0aqg1")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_himki"]
 atlas = ExtResource("30_pcp4w")
@@ -246,18 +352,29 @@ metadata/_edit_use_anchors_ = true
 [node name="UiSign" type="Sprite2D" parent="UI" unique_id=1003106588]
 position = Vector2(148.99998, 878)
 scale = Vector2(0.525, 0.525)
-texture = ExtResource("26_2px6s")
+texture = ExtResource("27_5hfqd")
 
 [node name="Life" type="Node2D" parent="UI" unique_id=971512501]
+script = ExtResource("28_526cm")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/Life" unique_id=1373978938]
+position = Vector2(127, 861)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("29_76f81")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UI/Life" unique_id=1537163238]
+position = Vector2(173, 861)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("29_76f81")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Life" unique_id=1547155459]
+libraries/ = SubResource("AnimationLibrary_25cby")
 
 [node name="Ammo" type="Label" parent="UI" unique_id=93379133]
-offset_left = 166.99998
-offset_top = 757.0
-offset_right = 266.0
-offset_bottom = 806.0
-rotation = 0.30622685
+offset_left = 162.0
+offset_top = 760.0
+offset_right = 261.0
+offset_bottom = 809.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("27_3brdo")
@@ -266,6 +383,7 @@ text = "x 0"
 script = ExtResource("28_5hsgd")
 
 [node name="Lives" type="Label" parent="UI" unique_id=86435813]
+visible = false
 offset_left = 77.99999
 offset_top = 849.0
 offset_right = 177.0
@@ -278,11 +396,10 @@ theme_override_font_sizes/font_size = 32
 text = "LIVES : "
 
 [node name="ScoreNum" type="Label" parent="UI" unique_id=1212554383]
-offset_left = 89.00001
-offset_top = 1021.0
-offset_right = 188.0
-offset_bottom = 1070.0
-rotation = -0.13127229
+offset_left = 100.0
+offset_top = 1010.0
+offset_right = 199.0
+offset_bottom = 1059.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("27_3brdo")
@@ -305,5 +422,5 @@ script = ExtResource("28_s8c5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI" unique_id=381385407]
 texture_filter = 1
-position = Vector2(122, 764)
+position = Vector2(121, 783)
 sprite_frames = SubResource("SpriteFrames_5hfqd")

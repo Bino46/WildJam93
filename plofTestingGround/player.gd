@@ -24,12 +24,15 @@ var shotgun_ammo : int = 0
 
 @onready var state_machine = $StateMachine
 
+signal died
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 	
 func die() -> void:
 	state_machine.current_state.transitioned.emit("Die")
+	died.emit(life)
 
 #func die() -> void:
 	#life -= 1
