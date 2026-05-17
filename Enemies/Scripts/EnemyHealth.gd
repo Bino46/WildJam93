@@ -37,12 +37,15 @@ func drop_shotgun():
 
 	test_val = randi_range(0,100)
 	if(test_val <= proba_drop && !dropped):
+		call_deferred("deferred_drop")
 
-		dropped = true
-		var drop = shotgun_bonus.instantiate() as Node2D
+func deferred_drop():
+	dropped = true
+	var drop = shotgun_bonus.instantiate() as Node2D
 
-		drop.global_position = global_position
+	drop.global_position = global_position
 
-		var level = get_tree().get_root().get_node("MainLevel")
+	var level = get_tree().get_root().get_node("MainLevel")
 
-		level.add_child(drop)
+	level.add_child(drop)
+		

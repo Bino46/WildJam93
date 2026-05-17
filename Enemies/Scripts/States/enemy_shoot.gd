@@ -47,8 +47,6 @@ func shoot():
 	var pew = get_node("../../ShootScript") as shoot_script
 	pew.shoot_projectile(simple_shoot)
 
-	parent.change_color_id(2)
-
 func retreat_mode():
 	is_retreating = true
 	
