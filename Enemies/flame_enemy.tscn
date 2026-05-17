@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cwb7gqrvdutfl" path="res://assets/pieuvredegueue/patrick star closed mouth.png" id="8_7urha"]
 [ext_resource type="Texture2D" uid="uid://cx15pwwra7xhc" path="res://assets/pieuvredegueue/patrick star open mouth.png" id="9_t3kfw"]
 [ext_resource type="Script" uid="uid://dj5ynfxij3i77" path="res://Enemies/pieuvre_sprite.gd" id="10_aa2li"]
+[ext_resource type="AudioStream" uid="uid://b7xusnqdolj4q" path="res://Sounds/Energy_Impulse_01.wav" id="11_70qy3"]
+[ext_resource type="AudioStream" uid="uid://07utsnpr2rbv" path="res://Sounds/Energy_Impulse_02.wav" id="12_a0hu2"]
+[ext_resource type="AudioStream" uid="uid://cktw1qvhag568" path="res://Sounds/Energy_Impulse_03.wav" id="13_pavn7"]
+[ext_resource type="AudioStream" uid="uid://bco4241167elk" path="res://Sounds/Energy_Impulse_04.wav" id="14_y5hmh"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_obgfw"]
 radial_segments = 4
@@ -102,6 +106,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6rqn7"]
+streams_count = 4
+stream_0/stream = ExtResource("11_70qy3")
+stream_1/stream = ExtResource("12_a0hu2")
+stream_2/stream = ExtResource("13_pavn7")
+stream_3/stream = ExtResource("14_y5hmh")
+
 [node name="FlameEnemy" type="Node2D" unique_id=1703660368]
 script = ExtResource("1_obgfw")
 score_added = 500.0
@@ -150,5 +161,8 @@ texture_filter = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_mh560")
 script = ExtResource("10_aa2li")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=18353716]
+stream = SubResource("AudioStreamRandomizer_6rqn7")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

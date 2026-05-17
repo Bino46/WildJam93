@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://dxmlv0m8wuxjy" path="res://Enemies/Scripts/States/enemy_shoot.gd" id="6_5o5db"]
 [ext_resource type="Script" uid="uid://dutwm6qbgs85g" path="res://Enemies/shoot_script.gd" id="7_g17dh"]
 [ext_resource type="Texture2D" uid="uid://bo16x5erbd2w7" path="res://images/Jam_AlienSprites_Blob.png" id="8_0x8ji"]
+[ext_resource type="AudioStream" uid="uid://b7xusnqdolj4q" path="res://Sounds/Energy_Impulse_01.wav" id="10_asn7x"]
+[ext_resource type="AudioStream" uid="uid://07utsnpr2rbv" path="res://Sounds/Energy_Impulse_02.wav" id="11_o4olb"]
+[ext_resource type="AudioStream" uid="uid://cktw1qvhag568" path="res://Sounds/Energy_Impulse_03.wav" id="12_dstrj"]
+[ext_resource type="AudioStream" uid="uid://bco4241167elk" path="res://Sounds/Energy_Impulse_04.wav" id="13_p6rfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek5t6"]
 atlas = ExtResource("8_0x8ji")
@@ -36,6 +40,13 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fv5p"]
 size = Vector2(54, 54)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h65ct"]
+streams_count = 4
+stream_0/stream = ExtResource("10_asn7x")
+stream_1/stream = ExtResource("11_o4olb")
+stream_2/stream = ExtResource("12_dstrj")
+stream_3/stream = ExtResource("13_p6rfg")
 
 [node name="SimpleEnemy" type="Node2D" unique_id=1703660368]
 script = ExtResource("1_57nd7")
@@ -84,5 +95,8 @@ simple_shoot = true
 [node name="ShootScript" type="Node2D" parent="." unique_id=1348426630]
 unique_name_in_owner = true
 script = ExtResource("7_g17dh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2090766886]
+stream = SubResource("AudioStreamRandomizer_h65ct")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

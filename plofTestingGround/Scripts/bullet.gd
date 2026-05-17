@@ -81,6 +81,8 @@ func bezier_move():
 
 #When reached destination, equivalent to tween.finished
 func finish_process():
+	if $AudioStreamPlayer:
+		$AudioStreamPlayer.play()
 	var new_hitbox = pool_manager._instance.get_from_pool("Hitbox") as hitbox
 	new_hitbox.init_hitbox(hitbox_duration, hitbox_style, layer, global_position)
 

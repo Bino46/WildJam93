@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buoyk2jy8wwab" path="res://plofTestingGround/scenes/old_bullet.tscn" id="2_g7sfb"]
 [ext_resource type="Texture2D" uid="uid://brcjsuuar5qta" path="res://images/ProjectileBase_Srpite.png" id="3_g7sfb"]
 [ext_resource type="Texture2D" uid="uid://cyal5nem4jv4s" path="res://images/Sprite_Cible.png" id="4_p4epx"]
+[ext_resource type="AudioStream" uid="uid://b4mgi3owmy3ld" path="res://Sounds/gearpile-explosion-3-386885.mp3" id="5_2if7d"]
 
 [node name="EnemyBullet" type="Node2D" unique_id=267890759]
 script = ExtResource("1_85h6o")
@@ -35,5 +36,9 @@ texture = ExtResource("4_p4epx")
 hframes = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 64)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1114884983]
+stream = ExtResource("5_2if7d")
+volume_db = -1.444
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

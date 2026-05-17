@@ -42,6 +42,7 @@ func Physics_update(delta: float) -> void: pass
 
 
 func shoot():
+	$"../../AudioStreamPlayer".play()
 	shot = true
 
 	var pew = get_node("../../ShootScript") as shoot_script
