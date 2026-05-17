@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="wave_data" format=3 uid="uid://jrbp4yfu2r11"]
+
+[ext_resource type="Script" uid="uid://chimmqf1w80im" path="res://Enemies/Scripts/Waves/wave_data.gd" id="1_8gj7o"]
+
+[resource]
+script = ExtResource("1_8gj7o")
+simple_enemy_count = 2
+flame_enemy_count = 2
+simple_enemy_spot = Array[int]([0, 2])
+flame_enemy_spot = Array[int]([5, 6])
+metadata/_custom_type_script = "uid://chimmqf1w80im"

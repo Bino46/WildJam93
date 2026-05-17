@@ -5,7 +5,5 @@
 [resource]
 script = ExtResource("1_jfwp8")
 simple_enemy_count = 2
-flame_enemy_count = 3
-simple_enemy_spot = Array[int]([3, 4])
-flame_enemy_spot = Array[int]([0, 1, 2])
+simple_enemy_spot = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://chimmqf1w80im"

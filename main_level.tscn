@@ -36,8 +36,14 @@
 [ext_resource type="Script" path="res://plofTestingGround/Scripts/ammo.gd" id="28_5hsgd"]
 [ext_resource type="Script" path="res://life.gd" id="28_526cm"]
 [ext_resource type="Script" path="res://plofTestingGround/Scripts/score_num.gd" id="28_s8c5p"]
+[ext_resource type="Resource" uid="uid://kpu8fs7rpqbk" path="res://Enemies/Scripts/Waves/wave5.tres" id="28_sc5ux"]
 [ext_resource type="Texture2D" uid="uid://c2vb6y68ccjer" path="res://assets/UI health ball.png" id="29_76f81"]
+[ext_resource type="Resource" uid="uid://jrbp4yfu2r11" path="res://Enemies/Scripts/Waves/wave6.tres" id="29_ns5k3"]
+[ext_resource type="Resource" uid="uid://bf5u04eij3r5h" path="res://Enemies/Scripts/Waves/wave7.tres" id="30_3odmg"]
 [ext_resource type="Texture2D" uid="uid://15g02ab4qemi" path="res://images/GunPowerUp.png" id="30_pcp4w"]
+[ext_resource type="Resource" uid="uid://ct5strgenmsbs" path="res://Enemies/Scripts/Waves/wave8.tres" id="31_q3aq3"]
+[ext_resource type="Resource" uid="uid://cqwlv2nll1eeo" path="res://Enemies/Scripts/Waves/wave9.tres" id="32_3cxdw"]
+[ext_resource type="Resource" uid="uid://bujbf3v4o646q" path="res://Enemies/Scripts/Waves/wave10.tres" id="33_ss8ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76f81"]
 size = Vector2(290, 1103)
@@ -329,7 +335,7 @@ script = ExtResource("9_6pb3s")
 list_simple_spawners = [NodePath("EnemySpawnerList/EnemySpawn"), NodePath("EnemySpawnerList/EnemySpawn2")]
 list_flame_spawners = [NodePath("EnemySpawnerList/FlameEnemySpawn"), NodePath("EnemySpawnerList/FlameEnemySpawn2")]
 list_enemy_spots = [NodePath("EnemySpots/Middle/Spot2"), NodePath("EnemySpots/Truck"), NodePath("EnemySpots/Middle/Spot3"), NodePath("EnemySpots/Middle/Spot"), NodePath("EnemySpots/Middle/Spot4"), NodePath("EnemySpots/Windows/w_Spot"), NodePath("EnemySpots/Windows/w_Spot2")]
-list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("11_ah7fh"), ExtResource("22_386tm"), ExtResource("23_2px6s"), ExtResource("24_7256s"), ExtResource("24_526cm")])
+list_wave_data = Array[ExtResource("10_e3ldi")]([ExtResource("11_ah7fh"), ExtResource("22_386tm"), ExtResource("23_2px6s"), ExtResource("24_7256s"), ExtResource("28_sc5ux"), ExtResource("29_ns5k3"), ExtResource("30_3odmg"), ExtResource("31_q3aq3"), ExtResource("32_3cxdw"), ExtResource("33_ss8ir"), ExtResource("24_526cm")])
 boss_spawner = NodePath("EnemySpawnerList/BossSpawn")
 time_between_enemy_spawns = 0.1
 
