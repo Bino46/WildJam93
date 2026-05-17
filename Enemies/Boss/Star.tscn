@@ -15,8 +15,9 @@ radial_segments = 4
 rings = 5
 
 [node name="Star" type="Node2D" unique_id=2082452564]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_63eb6")
-speed = 400.0
+speed = 300.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=536188645]
 light_mask = 2
