@@ -1,7 +1,7 @@
+class_name ecran_fin
 extends Control
 
 var main_menu = "res://main_menu.tscn"
-
 
 func appear():
 	self.visible = true
