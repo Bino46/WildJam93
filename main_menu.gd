@@ -4,6 +4,7 @@ var main_scene = "res://main_level.tscn"
 @onready var volume_slider = $ColorRect
 @onready var animated_sprite = $AnimatedSprite2D
 var can_press : bool = true
+@onready var controls : Node = $Controls
 
 
 func _ready() -> void:
@@ -11,7 +12,7 @@ func _ready() -> void:
 	
 func _on_button_pressed(button_index : int) -> void:
 	if button_index == 0 and can_press:
-		can_press == false
+		can_press = false
 		transition_animation()
 		MusicController.stop_music()
 		await animated_sprite.animation_finished
@@ -19,7 +20,11 @@ func _on_button_pressed(button_index : int) -> void:
 		
 		
 	if button_index == 1:
-		pass
+		if controls.visible == true:
+			controls.visible = false
+		elif controls.visible == false:
+			controls.visible = true
+			
 	if button_index == 2:
 		if volume_slider.visible == true:
 			volume_slider.visible = false

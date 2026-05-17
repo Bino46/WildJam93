@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://ehbeau2hhpix" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://cvddbth0edi8j" path="res://assets/Background.png" id="2_jix8l"]
 [ext_resource type="FontFile" uid="uid://douda60pg7pa6" path="res://assets/Smokum-Regular.ttf" id="3_glbon"]
+[ext_resource type="Script" uid="uid://yfyo6sdfeii5" path="res://start.gd" id="4_8qtwp"]
 [ext_resource type="Script" uid="uid://dd2nwihx5fly6" path="res://plofTestingGround/Scripts/volumeslider.gd" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://buggc3ft1ddhv" path="res://assets/credits sign2.png" id="5_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://bvbo6p8rcndlh" path="res://images/Jam_CharacterSprites.png" id="6_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://demg4jlsodmso" path="res://assets/gdb-xbox-2.png" id="7_qe12f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
 bg_color = Color(0.24705882, 0.18431373, 0, 0)
@@ -124,6 +126,7 @@ theme = SubResource("Theme_qe12f")
 theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 48
 text = "START"
+script = ExtResource("4_8qtwp")
 metadata/index = 1
 
 [node name="Button2" type="Button" parent="VBoxContainer" unique_id=448004331]
@@ -205,6 +208,7 @@ frame = 12
 frame_progress = 1.0
 
 [node name="Controls" type="ColorRect" parent="." unique_id=979364273]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -217,7 +221,7 @@ offset_right = 959.0
 offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.7372549)
+color = Color(0, 0, 0, 0.15686275)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Controls" unique_id=14623205]
 layout_mode = 0
@@ -226,7 +230,75 @@ offset_bottom = 520.0
 
 [node name="Label" type="Label" parent="Controls/VBoxContainer" unique_id=1503832160]
 layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 58
 text = "KEYBOARD :"
+
+[node name="Label2" type="Label" parent="Controls/VBoxContainer" unique_id=192896032]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 42
+text = "AIM : MOUSE"
+
+[node name="Label3" type="Label" parent="Controls/VBoxContainer" unique_id=855836482]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 42
+text = "SHOOT : LEFT CLICK"
+
+[node name="Label4" type="Label" parent="Controls/VBoxContainer" unique_id=1551392579]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 42
+text = "MOVE : ZQSD / WASD"
+
+[node name="Label5" type="Label" parent="Controls/VBoxContainer" unique_id=482760624]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 42
+text = "JUMP/ROLL : SPACE"
+
+[node name="Label6" type="Label" parent="Controls/VBoxContainer" unique_id=1036192507]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 58
+text = "CONTROLLER :"
+
+[node name="Label8" type="Label" parent="Controls/VBoxContainer" unique_id=1969785902]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 42
+text = "SHOOT : "
+
+[node name="Label7" type="Label" parent="Controls/VBoxContainer" unique_id=812677015]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 42
+text = "JUMP/ROLL : "
+
+[node name="Sprite2D" type="Sprite2D" parent="Controls" unique_id=1596656060]
+texture_filter = 1
+position = Vector2(167, 400)
+scale = Vector2(4, 4)
+texture = ExtResource("7_qe12f")
+region_enabled = true
+region_rect = Rect2(368.12338, 64.5329, 15.827576, 15.108139)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Controls" unique_id=876352453]
+texture_filter = 1
+position = Vector2(207, 461)
+scale = Vector2(4, 4)
+texture = ExtResource("7_qe12f")
+region_enabled = true
+region_rect = Rect2(448.52942, 49.573425, 14.772888, 13.32457)
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [1]]
